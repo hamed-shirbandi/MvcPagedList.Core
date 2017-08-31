@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model IEnumerable<UserOutput>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div id="search-form" class="form-inline">
+            <form class="form" asp-action="search" data-ajax="true" data-ajax-method="GET" data-ajax-update="#ajax-show-list" data-ajax-loading="#global-ajax-loading">
+                <div class="form-group">
+                    @Html.TextBox("term", null, new { @class = "form-control", id = "", placeholder = "search ..." })
+                </div>
+                <div class="form-group">
+                    @Html.DropDownList("SortBy", Html.GetEnumSelectList(typeof(SortBy)),  new { @class = "form-control"})
+                </div>
+                <div class="form-group">
+                    @Html.DropDownList("SortOrder", Html.GetEnumSelectList(typeof(SortOrder)), new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="Search" />
+                </div>
+            </form>
+
+</div>
+
+    </div>
+    <div id="ajax-show-list" class="panel-body">
+        @Html.Partial("_UsersList", Model)
+    </div>
+</div>
+
+
+<div class="loading-inner" id="global-ajax-loading">
+    <div class="loading">
+        <div class="loading-figure"></div>
+        @*<p class="loading-label">please wait ...</p>*@
+    </div>
+</div>
+
+@section Scripts{ 
+    @await  Html.PartialAsync("_ValidationScriptsPartial")
+}
+
