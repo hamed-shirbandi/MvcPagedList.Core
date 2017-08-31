@@ -12,8 +12,7 @@ You can also view the [package page](https://www.nuget.org/packages/MvcPagedList
 
 # How to use ?
 
-First install package from nuget.
-And then must be sure that following style and scripts defined in bower.json and linked to your layout.cshtml
+First install package from nuget And then be sure that following style and scripts defined in bower.json and linked to your layout.cshtml
 ```code
 {
   "name": "asp.net",
@@ -236,6 +235,7 @@ Add partial view with name _UsersPagedList
 
 
 ```
+if you dont need to ajax just set ajaxAttributes to null
 
 # Screenshots
 
