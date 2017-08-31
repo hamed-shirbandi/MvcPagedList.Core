@@ -8,7 +8,16 @@
         sortBy = Context.Request.Query["sortBy"],
 
     },
-    ajaxAttributes: null,
+    ajaxAttributes: new
+    {
+        data_ajax = "true",
+        data_ajax_loading = "#global-ajax-loading",
+        data_ajax_update = "#ajax-show-list",
+        data_ajax_method = "GET",
+        data_ajax_mode = "replace"
+
+
+    },
     pagerOptions: new PagerOptions
     {
         currentPage = (int)ViewBag.CurrentPage,
