@@ -1,6 +1,6 @@
 ﻿@using MvcPagedList.Core;
 
-    @PagedList.Pager(actionName: "search", controllerName: "home",
+@PagedList.Pager(actionName: "search", controllerName: "home",
     routeValues: new
     {
         term = Context.Request.Query["term"],
@@ -8,16 +8,7 @@
         sortBy = Context.Request.Query["sortBy"],
 
     },
-    ajaxAttributes: new
-    {
-        data_ajax = "true",
-        data_ajax_loading = "#global-ajax-loading",
-        data_ajax_update= "#ajax-show-list",
-        data_ajax_method = "GET",
-        data_ajax_mode = "replace"
-
-
-    },
+    ajaxAttributes: null,
     pagerOptions: new PagerOptions
     {
         currentPage = (int)ViewBag.CurrentPage,
@@ -30,8 +21,6 @@
         CurrentLocationFormat = "page",
         PageCountFormat = "of",
         TotalItemCountFormat = "total count",
-        WrapperClasses= "text-center",
+        WrapperClasses = "text-center",
 
-    }
-        )
-
+    } )

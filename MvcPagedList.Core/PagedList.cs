@@ -16,7 +16,7 @@ namespace MvcPagedList.Core
         static TagBuilder nextBtn;
         static TagBuilder wrapper;
         static TagBuilder ul;
-        
+
 
 
         /// <summary>
@@ -24,11 +24,11 @@ namespace MvcPagedList.Core
         /// </summary>
         public static IHtmlContent Pager(string actionName, string controllerName, object routeValues, object ajaxAttributes, PagerOptions pagerOptions)
         {
-          
+
             if (pagerOptions.DisplayMode == PagedListDisplayMode.Never || (pagerOptions.DisplayMode == PagedListDisplayMode.IfNeeded && pagerOptions.PageCount <= 1))
                 return null;
 
-            
+
             InitialPager(pagerOptions);
 
             InitialTags(pagerOptions);
@@ -42,7 +42,7 @@ namespace MvcPagedList.Core
             wrapper.InnerHtml.AppendHtml(ul);
 
             GenerateInfoArea(actionName, controllerName, routeValues, ajaxAttributes, pagerOptions);
-            
+
             return wrapper;
         }
 
@@ -111,7 +111,7 @@ namespace MvcPagedList.Core
         }
 
 
-        
+
 
 
         /// <summary>
@@ -134,7 +134,7 @@ namespace MvcPagedList.Core
                     li.AddCssClass("active");
                 }
 
-            
+
                 var span = new TagBuilder("span");
                 span.InnerHtml.AppendHtml(page.ToString());
 
@@ -148,7 +148,7 @@ namespace MvcPagedList.Core
             }
         }
 
-        
+
 
         /// <summary>
         /// 
@@ -227,8 +227,10 @@ namespace MvcPagedList.Core
         /// </summary>
         private static void MergeUrlAttribute(this TagBuilder tagBuilder, string actionName, string controllerName, object routeValues, int page)
         {
-            string values = String.Join("&", routeValues.GetType().GetProperties().Select(p => p.Name + "=" + p.GetValue(routeValues, null)));
-            tagBuilder.MergeAttribute("href", "/" + controllerName + "/" + actionName + "?" + values + "&page=" + page);
+            string values = string.Empty;
+            if (routeValues != null)
+                values = String.Join("&", routeValues.GetType().GetProperties().Select(p => p.Name + "=" + p.GetValue(routeValues, null)));
+            tagBuilder.MergeAttribute("href", "/" + controllerName + "/" + actionName + "?page=" + page + "&" + values);
         }
 
 
@@ -239,6 +241,9 @@ namespace MvcPagedList.Core
         /// </summary>
         public static void MergeAjaxAttribute(this TagBuilder tagBuilder, object ajaxAttributes)
         {
+            if (ajaxAttributes == null)
+                return;
+
             var attributes = ajaxAttributes.GetType().GetProperties().Select(p => new { Key = p.Name.Replace("_", "-"), Value = p.GetValue(ajaxAttributes, null) }).ToList();
             foreach (var attribute in attributes)
                 tagBuilder.Attributes.Add(attribute.Key, attribute.Value.ToString());
