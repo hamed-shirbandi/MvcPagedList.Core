@@ -7,7 +7,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>MvcPagedList.Core</AssemblyName>
     <PackageId>MvcPagedList.Core</PackageId>
-    <PackageTags>MVC;aspnetcore;pagination;paging;ajax</PackageTags>
+    <PackageTags>mvc;aspnetcore;pagination;paging;ajax</PackageTags>
     <PackageProjectUrl>https://github.com/hamed-shirbandi/MvcPagedList.Core</PackageProjectUrl>
     <PackageLicenseUrl></PackageLicenseUrl>
     <copyright>Copyright 2017 codeblock.ir</copyright>
