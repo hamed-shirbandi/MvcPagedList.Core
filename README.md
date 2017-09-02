@@ -1,6 +1,6 @@
 # What is this ?
 
-Easily paging in Asp.net Mvc Core that get data as chunks from database
+Easily paging in  ASP.NET Core MVC that get data as chunks from database
 
 # Install via NuGet
 
