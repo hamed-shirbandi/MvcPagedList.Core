@@ -25,7 +25,7 @@ namespace MvcPagedList.Core
         /// <summary>
         /// 
         /// </summary>
-        public static IHtmlContent Pager(string actionName, string controllerName, object routeValues, object ajaxAttributes, PagerOptions pagerOptions, string areaName = "")
+        public static IHtmlContent Pager(string actionName, object routeValues, object ajaxAttributes, PagerOptions pagerOptions, string controllerName = "", string areaName = "")
         {
 
             if (pagerOptions.DisplayMode == PagedListDisplayMode.Never || (pagerOptions.DisplayMode == PagedListDisplayMode.IfNeeded && pagerOptions.PageCount <= 1))
@@ -36,7 +36,7 @@ namespace MvcPagedList.Core
 
             InitialTags(pagerOptions);
 
-            GeneratePrevBtn(actionName, controllerName,areaName, routeValues, ajaxAttributes, pagerOptions);
+            GeneratePrevBtn(actionName, controllerName, areaName, routeValues, ajaxAttributes, pagerOptions);
 
             GeneratePageNumbers(actionName, controllerName, areaName, routeValues, ajaxAttributes, pagerOptions);
 
@@ -156,7 +156,7 @@ namespace MvcPagedList.Core
         /// <summary>
         /// 
         /// </summary>
-        private static void GeneratePrevBtn(string actionName, string controllerName,string areaName, object routeValues, object ajaxAttributes, PagerOptions pagerOptions)
+        private static void GeneratePrevBtn(string actionName, string controllerName, string areaName, object routeValues, object ajaxAttributes, PagerOptions pagerOptions)
         {
             if (pagerOptions.DisplayLinkToPreviousPage == PagedListDisplayMode.Always || (pagerOptions.DisplayLinkToPreviousPage == PagedListDisplayMode.IfNeeded && !isFirstPage))
             {
@@ -228,7 +228,7 @@ namespace MvcPagedList.Core
         /// <summary>
         /// 
         /// </summary>
-        private static void MergeUrlAttribute(this TagBuilder tagBuilder, string actionName, string controllerName,string areaName, object routeValues, int page)
+        private static void MergeUrlAttribute(this TagBuilder tagBuilder, string actionName, string controllerName, string areaName, object routeValues, int page)
         {
             string values = string.Empty;
             if (routeValues != null)
@@ -237,8 +237,12 @@ namespace MvcPagedList.Core
             if (!string.IsNullOrEmpty(areaName))
                 areaName = "/" + areaName;
 
+            if (!string.IsNullOrEmpty(controllerName))
+                controllerName = "/" + controllerName;
 
-            tagBuilder.MergeAttribute("href", areaName+ "/" + controllerName + "/" + actionName + "?page=" + page + "&" + values);
+
+            tagBuilder.MergeAttribute("href", areaName + controllerName + "/" + actionName + "?page=" + page + "&" + values);
+
         }
 
 
@@ -258,6 +262,4 @@ namespace MvcPagedList.Core
 
         }
     }
-
-
 }
