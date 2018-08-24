@@ -14,15 +14,24 @@ namespace MvcPagedList.Core.Example.Controllers
     public class HomeController : Controller
     {
         private readonly IUserService _userService;
+        private int page;
         private int pageSize;
         private int recordsPerPage;
-        private int TotalItemCount;
+        private int totalItemCount;
 
 
 
         public HomeController()
         {
             _userService = new UserService();
+
+             page = 1;
+            pageSize = 0;
+            recordsPerPage = 5;
+            totalItemCount = 0;
+
+            AddFakeUsers();
+
         }
 
 
@@ -33,25 +42,14 @@ namespace MvcPagedList.Core.Example.Controllers
         /// </summary>
         public ActionResult Index()
         {
-            #region Pagging
-
-            var page = 1;
-            pageSize = 0;
-            recordsPerPage = 5;
-            TotalItemCount = 0;
-
-
-            #endregion
-
-            AddFakeUsers();
-
-            var users = _userService.Search(page: page, recordsPerPage: recordsPerPage, term: "", sortBy: SortBy.AddDate, sortOrder: SortOrder.Desc, pageSize: out pageSize, TotalItemCount: out TotalItemCount);
+          
+            var users = _userService.Search(page: page, recordsPerPage: recordsPerPage, term: "", sortBy: SortBy.AddDate, sortOrder: SortOrder.Desc, pageSize: out pageSize, TotalItemCount: out totalItemCount);
 
             #region ViewBags
 
             ViewBag.PageSize = pageSize;
             ViewBag.CurrentPage = page;
-            ViewBag.TotalItemCount = TotalItemCount;
+            ViewBag.TotalItemCount = totalItemCount;
 
 
             #endregion
@@ -72,25 +70,16 @@ namespace MvcPagedList.Core.Example.Controllers
         public ActionResult Search(int page = 1, string term = "", SortBy sortBy = SortBy.AddDate, SortOrder sortOrder = SortOrder.Desc)
         {
             System.Threading.Thread.Sleep(700);
-            #region Pagging
-
-            pageSize = 0;
-            recordsPerPage = 5;
-            TotalItemCount = 0;
 
 
-            #endregion
-
-            AddFakeUsers();
-
-            var users = _userService.Search(page: page, recordsPerPage: recordsPerPage, term: term, sortBy: sortBy, sortOrder: sortOrder, pageSize: out pageSize, TotalItemCount: out TotalItemCount);
+            var users = _userService.Search(page: page, recordsPerPage: recordsPerPage, term: term, sortBy: sortBy, sortOrder: sortOrder, pageSize: out pageSize, TotalItemCount: out totalItemCount);
 
             #region ViewBags
 
 
             ViewBag.PageSize = pageSize;
             ViewBag.CurrentPage = page;
-            ViewBag.TotalItemCount = TotalItemCount;
+            ViewBag.TotalItemCount = totalItemCount;
 
 
             #endregion
@@ -121,10 +110,6 @@ namespace MvcPagedList.Core.Example.Controllers
             }
         }
 
-
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        
     }
 }
