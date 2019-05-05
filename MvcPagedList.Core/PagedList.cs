@@ -129,7 +129,7 @@ namespace MvcPagedList.Core
                 li.AddCssClass(pagerOptions.LiElementClasses);
 
                 if (page == 1 && pagerOptions.currentPage > pagerOptions.PageCount)
-                {
+                { 
                     li.AddCssClass("active");
                 }
                 else if (page == pagerOptions.currentPage)
