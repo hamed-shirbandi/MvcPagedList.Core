@@ -16,8 +16,8 @@ namespace MvcPagedList.Core
             CurrentLocationFormat = "page";
             PageCountFormat = "of";
             TotalItemCountFormat = "total item count";
-            WrapperClasses = "pagination-container";
-            UlElementClasses = "pagination";
+            WrapperClasses = "mp-pagination-nav";
+            UlElementClasses = "mp-pagination";
             LiElementClasses = "";
         }
 

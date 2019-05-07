@@ -1,4 +1,24 @@
-﻿@using MvcPagedList.Core;
+﻿
+@*<nav aria-label="Page navigation" class="mp-pagination-nav">
+    <ul class="mp-pagination">
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#" class="is-active">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+    </ul>
+    <div class="mp-pagination-footer">
+        <a href="" class="mp-btn">Next</a>
+        <a href="" class="mp-btn">Prev</a>
+        <div class="mp-pagination-info">
+            <div class="is-left">page 1 of 10</div>
+            <div class="is-right">total count 50</div>
+        </div>
+    </div>
+</nav>*@
+
+
+@using MvcPagedList.Core;
 
 @PagedList.Pager(actionName: "search", controllerName: "home",areaName:"",
     routeValues: new
@@ -30,6 +50,5 @@
         CurrentLocationFormat = "page",
         PageCountFormat = "of",
         TotalItemCountFormat = "total count",
-        WrapperClasses = "text-center",
 
     } )

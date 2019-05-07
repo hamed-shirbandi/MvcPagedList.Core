@@ -58,10 +58,10 @@ namespace MvcPagedList.Core
         private static void InitialTags(PagerOptions pagerOptions)
         {
             prevBtn = new TagBuilder("a");
-            prevBtn.AddCssClass("btn btn-default");
+            prevBtn.AddCssClass("mp-btn");
 
             nextBtn = new TagBuilder("a");
-            nextBtn.AddCssClass("btn btn-default");
+            nextBtn.AddCssClass("mp-btn");
 
 
             wrapper = new TagBuilder("nav");
@@ -100,16 +100,13 @@ namespace MvcPagedList.Core
 
             if (pagerOptions.DisplayLinkToNextPage == PagedListDisplayMode.Always || (pagerOptions.DisplayLinkToNextPage == PagedListDisplayMode.IfNeeded && !isLastPage))
             {
-                var span = new TagBuilder("span");
-                span.InnerHtml.AppendHtml(pagerOptions.LinkToNextPageFormat);
                 var page = pagerOptions.currentPage >= pagerOptions.PageCount ? pagerOptions.PageCount : pagerOptions.currentPage + 1;
-
 
                 nextBtn.MergeAjaxAttribute(ajaxAttributes);
 
                 nextBtn.MergeUrlAttribute(actionName, controllerName, areaName, routeValues, page);
 
-                nextBtn.InnerHtml.AppendHtml(span);
+                nextBtn.InnerHtml.AppendHtml(pagerOptions.LinkToNextPageFormat);
             }
         }
 
@@ -130,21 +127,17 @@ namespace MvcPagedList.Core
 
                 if (page == 1 && pagerOptions.currentPage > pagerOptions.PageCount)
                 { 
-                    li.AddCssClass("active");
+                    li.AddCssClass("is-active");
                 }
                 else if (page == pagerOptions.currentPage)
                 {
-                    li.AddCssClass("active");
+                    li.AddCssClass("is-active");
                 }
-
-
-                var span = new TagBuilder("span");
-                span.InnerHtml.AppendHtml(page.ToString());
-
+                
                 var a = new TagBuilder("a");
                 a.MergeAjaxAttribute(ajaxAttributes);
                 a.MergeUrlAttribute(actionName, controllerName, areaName, routeValues, page);
-                a.InnerHtml.AppendHtml(span);
+                a.InnerHtml.AppendHtml(page.ToString());
 
                 li.InnerHtml.AppendHtml(a);
                 ul.InnerHtml.AppendHtml(li);
@@ -160,18 +153,13 @@ namespace MvcPagedList.Core
         {
             if (pagerOptions.DisplayLinkToPreviousPage == PagedListDisplayMode.Always || (pagerOptions.DisplayLinkToPreviousPage == PagedListDisplayMode.IfNeeded && !isFirstPage))
             {
-
-                var span = new TagBuilder("span");
-                span.InnerHtml.AppendHtml(pagerOptions.LinkToPreviousPageFormat);
-
                 var page = pagerOptions.currentPage <= 1 ? 1 : pagerOptions.currentPage - 1;
-
 
                 prevBtn.MergeAjaxAttribute(ajaxAttributes);
 
                 prevBtn.MergeUrlAttribute(actionName, controllerName, areaName, routeValues, page);
 
-                prevBtn.InnerHtml.AppendHtml(span);
+                prevBtn.InnerHtml.AppendHtml(pagerOptions.LinkToPreviousPageFormat);
             }
         }
 
@@ -184,39 +172,43 @@ namespace MvcPagedList.Core
 
             if (pagerOptions.DisplayInfoArea == true)
             {
-                var infoDiv = new TagBuilder("div");
-                infoDiv.AddCssClass("well well-sm text-primary clearfix text-center");
-
-
-                if (pagerOptions.DisplayPageCountAndCurrentLocation == true)
-                {
-
-                    var infoSpan = new TagBuilder("span");
-                    infoSpan.AddCssClass("pull-right");
-                    infoSpan.InnerHtml.AppendHtml(pagerOptions.CurrentLocationFormat + " " + pagerOptions.currentPage + " " + pagerOptions.PageCountFormat + " " + pagerOptions.PageCount);
-                    infoDiv.InnerHtml.AppendHtml(infoSpan);
-
-                }
-                if (pagerOptions.DisplayTotalItemCount == true)
-                {
-                    var infoSpan = new TagBuilder("span");
-                    infoSpan.AddCssClass("pull-left");
-                    infoSpan.InnerHtml.AppendHtml(pagerOptions.TotalItemCountFormat + " " + pagerOptions.TotalItemCount);
-                    infoDiv.InnerHtml.AppendHtml(infoSpan);
-                }
-
+                var footerDiv = new TagBuilder("div");
+                footerDiv.AddCssClass("mp-pagination-footer");
 
                 if (hasPreviousPage)
                 {
-                    infoDiv.InnerHtml.AppendHtml(prevBtn);
+                    footerDiv.InnerHtml.AppendHtml(prevBtn);
                 }
 
                 if (hasNextPage)
                 {
-                    infoDiv.InnerHtml.AppendHtml(nextBtn);
+                    footerDiv.InnerHtml.AppendHtml(nextBtn);
                 }
 
-                wrapper.InnerHtml.AppendHtml(infoDiv);
+                var infoDiv = new TagBuilder("div");
+                infoDiv.AddCssClass("mp-pagination-info");
+
+                if (pagerOptions.DisplayPageCountAndCurrentLocation == true)
+                {
+
+                    var pageInfoDiv = new TagBuilder("div");
+                    pageInfoDiv.AddCssClass("is-right");
+                    pageInfoDiv.InnerHtml.AppendHtml(pagerOptions.CurrentLocationFormat + " " + pagerOptions.currentPage + " " + pagerOptions.PageCountFormat + " " + pagerOptions.PageCount);
+                    infoDiv.InnerHtml.AppendHtml(pageInfoDiv);
+
+                }
+                if (pagerOptions.DisplayTotalItemCount == true)
+                {
+                    var totalInfoDiv = new TagBuilder("div");
+                    totalInfoDiv.AddCssClass("is-left");
+                    totalInfoDiv.InnerHtml.AppendHtml(pagerOptions.TotalItemCountFormat + " " + pagerOptions.TotalItemCount);
+                    infoDiv.InnerHtml.AppendHtml(totalInfoDiv);
+                }
+
+
+                footerDiv.InnerHtml.AppendHtml(infoDiv);
+
+                wrapper.InnerHtml.AppendHtml(footerDiv);
             }
 
 
