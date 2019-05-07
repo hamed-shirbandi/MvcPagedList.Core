@@ -13,7 +13,7 @@ You can also view the [package page](https://www.nuget.org/packages/MvcPagedList
 # How to use ?
 
 ## Add Style
-After installing the nuget package you must add MvcPagedList.Core.css to your layout.cshtml. this css copied to your project in wwwroot/css folder after installing.
+After installing the nuget package you must add [MvcPagedList.Core.css](https://github.com/hamed-shirbandi/MvcPagedList.Core/blob/master/MvcPagedList.Core/css/MvcPagedList.Core.css) to your layout.cshtml. this css copied to your project in wwwroot/css folder after installing.
 
 ## Add Scripts
 And if you need to ajax paging so you need to add following scripts to your layout.cshtml
