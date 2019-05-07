@@ -12,19 +12,15 @@ You can also view the [package page](https://www.nuget.org/packages/MvcPagedList
 
 # How to use ?
 
-First install package from nuget And then be sure that following style and scripts are defined in bower.json and linked to your layout.cshtml
+After installing the nuget package you must add MvcPagedList.Core.css to your layout.cshtml. this css copied to your project in wwwroot/css folder after installing.
+
+
+And if you need to ajax paging so you need to add following scripts to your layout.cshtml
 ```code
-{
-  "name": "asp.net",
-  "private": true,
-  "dependencies": {
-    "bootstrap": "3.3.7",
-    "jquery": "2.2.0",
-    "jquery-validation": "1.14.0",
-    "jquery-validation-unobtrusive": "3.2.6",
-    "jquery-ajax-unobtrusive": "3.2.4"
-  }
-}
+jquery
+jquery-validation
+jquery-validation-unobtrusive
+jquery-ajax-unobtrusive
 
 ```
 
@@ -162,7 +158,7 @@ Add partial view with _UsersList.cshtml name
 @if (Model.Count() == 0)
 {
     <div class="alert alert-info">
-        No Users found
+        No User found
     </div>
 }
 else
