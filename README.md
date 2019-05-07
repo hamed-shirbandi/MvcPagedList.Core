@@ -12,9 +12,10 @@ You can also view the [package page](https://www.nuget.org/packages/MvcPagedList
 
 # How to use ?
 
+## Add Style
 After installing the nuget package you must add MvcPagedList.Core.css to your layout.cshtml. this css copied to your project in wwwroot/css folder after installing.
 
-
+## Add Scripts
 And if you need to ajax paging so you need to add following scripts to your layout.cshtml
 ```code
 jquery
@@ -23,6 +24,8 @@ jquery-validation-unobtrusive
 jquery-ajax-unobtrusive
 
 ```
+
+## Implementing back-end methods
 
 now we need to implement method that take data from database like bellow
 
@@ -114,6 +117,9 @@ Then we need to call this method in controller and set some ViewBags for index a
 
 
 ```
+
+## Add Views
+
 And now we need to add index.cshtml like this :
 
 ```code
@@ -189,6 +195,9 @@ else
 
 
 ```
+
+## Add Pager to View
+
 Add partial view with name _UsersPagedList 
 
 ```code
@@ -224,7 +233,6 @@ Add partial view with name _UsersPagedList
         CurrentLocationFormat = "page",
         PageCountFormat = "of",
         TotalItemCountFormat = "total count",
-        WrapperClasses = "text-center",
 
     } )
 
