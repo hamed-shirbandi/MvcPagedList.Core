@@ -175,18 +175,21 @@ namespace MvcPagedList.Core
                 var footerDiv = new TagBuilder("div");
                 footerDiv.AddCssClass("mp-pagination-footer");
 
+                var infoDiv = new TagBuilder("div");
+                infoDiv.AddCssClass("mp-pagination-info");
+
+
                 if (hasPreviousPage)
                 {
-                    footerDiv.InnerHtml.AppendHtml(prevBtn);
+                    infoDiv.InnerHtml.AppendHtml(prevBtn);
                 }
 
                 if (hasNextPage)
                 {
-                    footerDiv.InnerHtml.AppendHtml(nextBtn);
+                    infoDiv.InnerHtml.AppendHtml(nextBtn);
                 }
 
-                var infoDiv = new TagBuilder("div");
-                infoDiv.AddCssClass("mp-pagination-info");
+              
 
                 if (pagerOptions.DisplayPageCountAndCurrentLocation == true)
                 {
@@ -197,6 +200,8 @@ namespace MvcPagedList.Core
                     infoDiv.InnerHtml.AppendHtml(pageInfoDiv);
 
                 }
+
+
                 if (pagerOptions.DisplayTotalItemCount == true)
                 {
                     var totalInfoDiv = new TagBuilder("div");
