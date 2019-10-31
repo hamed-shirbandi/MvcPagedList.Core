@@ -3,14 +3,17 @@
 }
 
 .mp-pagination {
-    display: inline-block;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     padding-left: 0;
     margin: 20px 0;
     border-radius: 4px;
 }
 
     .mp-pagination > li {
-        display: inline;
+        flex: 0 0 auto;
     }
 
         .mp-pagination > li > a,

@@ -45,7 +45,7 @@ namespace MvcPagedList.Core.Example.Service.Users
             var queryable = users.AsQueryable();
 
 
-            #region بر اساس متن
+            #region by term
 
 
 
@@ -59,7 +59,7 @@ namespace MvcPagedList.Core.Example.Service.Users
 
             #endregion
 
-            #region مرتب سازی
+            #region ordering
 
 
 
@@ -80,19 +80,23 @@ namespace MvcPagedList.Core.Example.Service.Users
 
             #endregion
 
-            #region دریافت تعداد کل صفحات
+            #region calculate skipe count
+
 
             TotalItemCount = queryable.Count();
             pageSize = (int)Math.Ceiling((double)TotalItemCount / recordsPerPage);
 
             page = page > pageSize || page < 1 ? 1 : page;
 
+            var skiped = (page - 1) * recordsPerPage;
+
+
             #endregion
 
-            #region دریافت تعداد رکوردهای مورد تیاز
+            #region take records
 
 
-            var skiped = (page - 1) * recordsPerPage;
+
             queryable = queryable.Skip(skiped).Take(recordsPerPage);
 
 

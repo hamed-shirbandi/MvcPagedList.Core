@@ -97,7 +97,7 @@ namespace MvcPagedList.Core.Example.Controllers
         /// </summary>
         void AddFakeUsers()
         {
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 400; i++)
             {
                 _userService.Create(new UserInput
                 {
