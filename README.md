@@ -12,11 +12,12 @@ You can also view the [package page](https://www.nuget.org/packages/MvcPagedList
 
 # How to use ?
 
-## Add Style
-After installing the nuget package you must add [MvcPagedList.Core.css](https://github.com/hamed-shirbandi/MvcPagedList.Core/blob/master/MvcPagedList.Core/wwwroot/css/MvcPagedList.Core.css) to your layout.cshtml. this css copied to your project in wwwroot/css folder after installing.
+## Add Style if you dont want to load MvcPagedList.Core.css style from cdn
 
-## Add Scripts
-And if you need to ajax paging so you need to add following scripts to your layout.cshtml
+The needed style load from cdn by default. if you dont want this so you must add [MvcPagedList.Core.css](https://github.com/hamed-shirbandi/MvcPagedList.Core/blob/master/MvcPagedList.Core/wwwroot/css/MvcPagedList.Core.css) to your layout.cshtml. this css copied to your project in wwwroot/css folder after installing.
+
+## Add Scripts if you need to ajax paging
+If you need to ajax paging so you need to add following scripts to your layout.cshtml
 ```code
 jquery
 jquery-validation
@@ -201,9 +202,11 @@ else
 Add partial view with name _UsersPagedList 
 
 ```code
+
+
 @using MvcPagedList.Core;
 
-@PagedList.Pager(actionName: "search", controllerName: "home", areaName:"",
+@PagedList.Pager(actionName: "search", controllerName: "home",areaName:"",
     routeValues: new
     {
         term = Context.Request.Query["term"],
@@ -211,7 +214,7 @@ Add partial view with name _UsersPagedList
         sortBy = Context.Request.Query["sortBy"],
 
     },
-    ajaxAttributes: new
+    ajaxAttributes: new //if you dont need to ajax just set ajaxAttributes to null
     {
         data_ajax = "true",
         data_ajax_loading = "#global-ajax-loading",
@@ -233,13 +236,13 @@ Add partial view with name _UsersPagedList
         CurrentLocationFormat = "page",
         PageCountFormat = "of",
         TotalItemCountFormat = "total count",
-
+        GetStyleSheetFileFromCdn=true,
     } )
 
 
 
 ```
-if you dont need to ajax just set ajaxAttributes to null
+
 
 # Screenshots
 
