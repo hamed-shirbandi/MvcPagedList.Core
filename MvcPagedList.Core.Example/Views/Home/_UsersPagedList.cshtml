@@ -10,7 +10,7 @@
         sortBy = Context.Request.Query["sortBy"],
 
     },
-    ajaxAttributes: new
+    ajaxAttributes: new // if you dont need to ajax just set ajaxAttributes to null
     {
         data_ajax = "true",
         data_ajax_loading = "#global-ajax-loading",
@@ -32,5 +32,5 @@
         CurrentLocationFormat = "page",
         PageCountFormat = "of",
         TotalItemCountFormat = "total count",
-        GetStyleSheetFileFromCdn=true,//if you dont want to load MvcPagedList.Core.css from cdn you must set this prop to false and link it directly in to your project layout. you can find MvcPagedList.Core.css in https://github.com/hamed-shirbandi/MvcPagedList.Core/blob/master/MvcPagedList.Core/wwwroot/css/MvcPagedList.Core.css
+        GetStyleSheetFileFromCdn=true,
     } )

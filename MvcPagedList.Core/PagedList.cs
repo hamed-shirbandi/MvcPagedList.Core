@@ -129,6 +129,8 @@ namespace MvcPagedList.Core
         /// </summary>
         private static void GeneratePageNumbers(string actionName, string controllerName, string areaName, object routeValues, object ajaxAttributes, PagerOptions pagerOptions)
         {
+            if (!pagerOptions.DisplayPageNumbers)
+                return;
 
             for (int page = 1; page <= pagerOptions.PageCount; page++)
             {

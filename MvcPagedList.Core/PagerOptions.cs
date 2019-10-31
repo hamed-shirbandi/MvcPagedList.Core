@@ -20,6 +20,8 @@ namespace MvcPagedList.Core
             UlElementClasses = "mp-pagination";
             LiElementClasses = "";
             GetStyleSheetFileFromCdn = true;
+            DisplayPageNumbers = true;
+
         }
 
         public PagedListDisplayMode DisplayMode { get; set; }
@@ -44,6 +46,11 @@ namespace MvcPagedList.Core
         /// if you dont want to load MvcPagedList.Core.css from cdn you must set this prop to false and link it directly in to your project layout 
         /// </summary>
         public bool GetStyleSheetFileFromCdn { get; set; }
+
+        /// <summary>
+        /// if you dont want to show page numbers just set DisplayPageNumbers to false
+        /// </summary>
+        public bool DisplayPageNumbers { get; set; }
 
 
     }
