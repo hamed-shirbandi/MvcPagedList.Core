@@ -12,9 +12,9 @@ You can also view the [package page](https://www.nuget.org/packages/MvcPagedList
 
 # How to use ?
 
-## Add Style if you dont want to load MvcPagedList.Core.css style from cdn
+## Add Style if you dont want to load MvcPagedList.Core.css from cdn
 
-The needed style load from cdn by default. if you dont want this so you must add [MvcPagedList.Core.css](https://github.com/hamed-shirbandi/MvcPagedList.Core/blob/master/MvcPagedList.Core/wwwroot/css/MvcPagedList.Core.css) to your layout.cshtml. this css copied to your project in wwwroot/css folder after installing.
+The needed style load from cdn by default. if you dont want this so you must add [MvcPagedList.Core.css](https://github.com/hamed-shirbandi/MvcPagedList.Core/blob/master/MvcPagedList.Core/wwwroot/css/MvcPagedList.Core.css) to your layout.cshtml. this css copied to your project in wwwroot/css folder after installing and then you must to set GetStyleSheetFileFromCdn to false in pager defination.
 
 ## Add Scripts if you need to ajax paging
 If you need to ajax paging so you need to add following scripts to your layout.cshtml
@@ -236,7 +236,7 @@ Add partial view with name _UsersPagedList
         CurrentLocationFormat = "page",
         PageCountFormat = "of",
         TotalItemCountFormat = "total count",
-        GetStyleSheetFileFromCdn=true,
+        GetStyleSheetFileFromCdn=true,//set it to false if you dont want to load style file from cdn
     } )
 
 
