@@ -19,6 +19,7 @@ namespace MvcPagedList.Core
             WrapperClasses = "mp-pagination-nav";
             UlElementClasses = "mp-pagination";
             LiElementClasses = "";
+            GetStyleSheetFileFromCdn = true;
         }
 
         public PagedListDisplayMode DisplayMode { get; set; }
@@ -38,6 +39,11 @@ namespace MvcPagedList.Core
         public string WrapperClasses { get; set; }
         public string UlElementClasses { get; set; }
         public string LiElementClasses { get; set; }
+
+        /// <summary>
+        /// if you dont want to load MvcPagedList.Core.css from cdn you must set this prop to false and link it directly in to your project layout 
+        /// </summary>
+        public bool GetStyleSheetFileFromCdn { get; set; }
 
 
     }

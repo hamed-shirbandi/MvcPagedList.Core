@@ -18,8 +18,8 @@ namespace MvcPagedList.Core
         static TagBuilder prevBtn;
         static TagBuilder nextBtn;
         static TagBuilder wrapper;
+        static TagBuilder nav;
         static TagBuilder ul;
-
 
 
         /// <summary>
@@ -32,6 +32,8 @@ namespace MvcPagedList.Core
                 return null;
 
 
+            GenerateStylesheetCdnLink(pagerOptions);
+
             InitialPager(pagerOptions);
 
             InitialTags(pagerOptions);
@@ -42,11 +44,19 @@ namespace MvcPagedList.Core
 
             GenerateNextBtn(actionName, controllerName, areaName, routeValues, ajaxAttributes, pagerOptions);
 
-            wrapper.InnerHtml.AppendHtml(ul);
+            nav.InnerHtml.AppendHtml(ul);
 
             GenerateInfoArea(pagerOptions);
 
             return wrapper;
+        }
+
+        private static void GenerateStylesheetCdnLink(PagerOptions pagerOptions)
+        {
+            wrapper = new TagBuilder("div");
+
+            if (pagerOptions.GetStyleSheetFileFromCdn == true)
+                wrapper.InnerHtml.AppendHtml(@"<link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/gh/hamed-shirbandi/MvcPagedList.Core/MvcPagedList.Core/wwwroot/css/MvcPagedList.Core.css"" />");
         }
 
 
@@ -64,9 +74,9 @@ namespace MvcPagedList.Core
             nextBtn.AddCssClass("mp-btn");
 
 
-            wrapper = new TagBuilder("nav");
-            wrapper.MergeAttribute("aria-label", "Page navigation");
-            wrapper.AddCssClass(pagerOptions.WrapperClasses);
+            nav = new TagBuilder("nav");
+            nav.MergeAttribute("aria-label", "Page navigation");
+            nav.AddCssClass(pagerOptions.WrapperClasses);
 
 
 
@@ -126,14 +136,14 @@ namespace MvcPagedList.Core
                 li.AddCssClass(pagerOptions.LiElementClasses);
 
                 if (page == 1 && pagerOptions.currentPage > pagerOptions.PageCount)
-                { 
+                {
                     li.AddCssClass("is-active");
                 }
                 else if (page == pagerOptions.currentPage)
                 {
                     li.AddCssClass("is-active");
                 }
-                
+
                 var a = new TagBuilder("a");
                 a.MergeAjaxAttribute(ajaxAttributes);
                 a.MergeUrlAttribute(actionName, controllerName, areaName, routeValues, page);
@@ -189,7 +199,7 @@ namespace MvcPagedList.Core
                     infoDiv.InnerHtml.AppendHtml(nextBtn);
                 }
 
-              
+
 
                 if (pagerOptions.DisplayPageCountAndCurrentLocation == true)
                 {
@@ -213,7 +223,8 @@ namespace MvcPagedList.Core
 
                 footerDiv.InnerHtml.AppendHtml(infoDiv);
 
-                wrapper.InnerHtml.AppendHtml(footerDiv);
+                nav.InnerHtml.AppendHtml(footerDiv);
+                wrapper.InnerHtml.AppendHtml(nav);
             }
 
 
