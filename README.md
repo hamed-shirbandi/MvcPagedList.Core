@@ -1,6 +1,6 @@
 # What is this ?
 
-Easily paging in  ASP.NET Core MVC that get data as chunks from database
+Easily paging in  ASP.NET Core that get data as chunks from database
 
 # Install via NuGet
 
@@ -236,7 +236,8 @@ Add partial view with name _UsersPagedList
         CurrentLocationFormat = "page",
         PageCountFormat = "of",
         TotalItemCountFormat = "total count",
-        GetStyleSheetFileFromCdn=true,//set it to false if you dont want to load style file from cdn
+        //set it to false if you dont want to load style file from cdn then add [MvcPagedList.Core.css](https://github.com/hamed-shirbandi/MvcPagedList.Core/blob/master/MvcPagedList.Core/wwwroot/css/MvcPagedList.Core.css) to your Layout
+        GetStyleSheetFileFromCdn=true,
     } )
 
 
