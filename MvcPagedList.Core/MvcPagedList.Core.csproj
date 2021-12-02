@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Description>Easily paging in  ASP.NET Core MVC that get data as chunks from database.</Description>
-    <VersionPrefix>1.1.1</VersionPrefix>
+    <Description>Easily paging in ASP.NET Core that get data as chunks from database.</Description>
+    <VersionPrefix>2.0.0</VersionPrefix>
     <Authors>hamed shirbandi</Authors>
-    <TargetFramework>netstandard2.0</TargetFramework>
+	<TargetFramework>net6.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>MvcPagedList.Core</AssemblyName>
     <PackageId>MvcPagedList.Core</PackageId>
@@ -26,7 +26,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <PlatformTarget>anycpu</PlatformTarget>
