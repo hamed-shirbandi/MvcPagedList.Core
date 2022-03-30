@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using MvcPagedList.Core.Example.Models;
 using MvcPagedList.Core.Example.Service.Users.Dto;
 using MvcPagedList.Core.Example.Enums;
 using MvcPagedList.Core.Example.Service.Users;
