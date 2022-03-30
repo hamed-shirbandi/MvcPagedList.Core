@@ -3,7 +3,6 @@
 }
 @model IEnumerable<UserOutput>
 
-
 <div class="panel panel-default">
     <div class="panel-heading">
         <form class="form-inline" id="search-form" asp-action="search" data-ajax="true" data-ajax-method="GET" data-ajax-update="#ajax-show-list" data-ajax-loading="#global-ajax-loading">
@@ -33,6 +32,7 @@
 </div>
 
 @section Scripts{
+    <!--To handle ajax pagination-->
     @await Html.PartialAsync("_ValidationScriptsPartial")
 }
 

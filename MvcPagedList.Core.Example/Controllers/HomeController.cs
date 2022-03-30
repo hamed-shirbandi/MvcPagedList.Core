@@ -19,18 +19,15 @@ namespace MvcPagedList.Core.Example.Controllers
         private int totalItemCount;
 
 
-
         public HomeController()
         {
             _userService = new UserService();
-
-             page = 1;
+            page = 1;
             pageSize = 0;
             recordsPerPage = 5;
             totalItemCount = 0;
 
             AddFakeUsers();
-
         }
 
 
@@ -41,9 +38,9 @@ namespace MvcPagedList.Core.Example.Controllers
         /// </summary>
         public ActionResult Index()
         {
-          
             var users = _userService.Search(page: page, recordsPerPage: recordsPerPage, term: "", sortBy: SortBy.AddDate, sortOrder: SortOrder.Desc, pageSize: out pageSize, TotalItemCount: out totalItemCount);
 
+            //Provide some data by ViewBags to use in _UsersPagedList.cshtml
             #region ViewBags
 
             ViewBag.PageSize = pageSize;
@@ -58,21 +55,17 @@ namespace MvcPagedList.Core.Example.Controllers
 
 
 
-
-
-
         /// <summary>
         /// 
         /// </summary>
-        /// <returns></returns>
         [HttpGet]
         public ActionResult Search(int page = 1, string term = "", SortBy sortBy = SortBy.AddDate, SortOrder sortOrder = SortOrder.Desc)
         {
-            System.Threading.Thread.Sleep(700);
-
+            Thread.Sleep(700);
 
             var users = _userService.Search(page: page, recordsPerPage: recordsPerPage, term: term, sortBy: sortBy, sortOrder: sortOrder, pageSize: out pageSize, TotalItemCount: out totalItemCount);
 
+            //Provide some data by ViewBags to use in _UsersPagedList.cshtml
             #region ViewBags
 
 
@@ -85,9 +78,6 @@ namespace MvcPagedList.Core.Example.Controllers
 
             return PartialView("_UsersList", users);
         }
-
-
-
 
 
 
@@ -109,6 +99,6 @@ namespace MvcPagedList.Core.Example.Controllers
             }
         }
 
-        
+
     }
 }

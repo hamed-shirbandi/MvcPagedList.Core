@@ -1,6 +1,4 @@
-﻿
-
-@using MvcPagedList.Core;
+﻿@using MvcPagedList.Core;
 
 @PagedList.Pager(actionName: "search", controllerName: "home",areaName:"",
     routeValues: new
@@ -10,21 +8,22 @@
         sortBy = Context.Request.Query["sortBy"],
 
     },
-    ajaxAttributes: new // if you dont need to ajax just set ajaxAttributes to null
+    // if you dont need ajax and want it to reload the page when switching between the pages, just set ajaxAttributes to null
+    ajaxAttributes: new
     {
         data_ajax = "true",
         data_ajax_loading = "#global-ajax-loading",
         data_ajax_update = "#ajax-show-list",
         data_ajax_method = "GET",
         data_ajax_mode = "replace"
-
-
     },
     pagerOptions: new PagerOptions
     {
+        //Get data from ViewBags provided by controller
         currentPage = (int)ViewBag.CurrentPage,
         PageCount = (int)ViewBag.PageSize,
         TotalItemCount = (int)ViewBag.TotalItemCount,
+
         DisplayMode = PagedListDisplayMode.IfNeeded,
         DisplayInfoArea = true,
         LinkToNextPageFormat = "next",

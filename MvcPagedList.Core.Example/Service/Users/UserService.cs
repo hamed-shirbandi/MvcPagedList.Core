@@ -44,7 +44,6 @@ namespace MvcPagedList.Core.Example.Service.Users
         {
             var queryable = users.AsQueryable();
 
-
             #region by term
 
 
@@ -101,8 +100,6 @@ namespace MvcPagedList.Core.Example.Service.Users
 
 
             #endregion
-
-
 
             return queryable.Select(u => new UserOutput
             {
