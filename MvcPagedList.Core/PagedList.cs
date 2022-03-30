@@ -32,7 +32,7 @@ namespace MvcPagedList.Core
         /// <summary>
         /// 
         /// </summary>
-        public static IHtmlContent Pager(string actionName, object routeValues, object ajaxAttributes, PagerOptions pagerOptions, string controllerName = "", string areaName = "")
+        public static IHtmlContent Pager(string actionName, PagerOptions pagerOptions, string controllerName = "", string areaName = "", object routeValues = null, object ajaxAttributes = null)
         {
             if (pagerOptions.DisplayMode == PagedListDisplayMode.Never || (pagerOptions.DisplayMode == PagedListDisplayMode.IfNeeded && pagerOptions.PageCount <= 1))
                 return null;
