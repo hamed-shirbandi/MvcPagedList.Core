@@ -71,7 +71,7 @@ namespace MvcPagedList.Core
             wrapper = new TagBuilder("div");
 
             if (pagerOptions.GetStyleSheetFileFromCdn == true)
-                wrapper.InnerHtml.AppendHtml(@"<link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/gh/hamed-shirbandi/MvcPagedList.Core/MvcPagedList.Core/wwwroot/css/MvcPagedList.Core.css"" />");
+                wrapper.InnerHtml.AppendHtml(@"<link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/gh/hamed-shirbandi/MvcPagedList.Core/MvcPagedList.Core/wwwroot/css/MvcPagedList.Core.v1.css"" />");
         }
 
 

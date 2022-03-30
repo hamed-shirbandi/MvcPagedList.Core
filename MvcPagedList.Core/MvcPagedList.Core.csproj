@@ -19,8 +19,12 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="MvcPagedList.Core.css" />
+    <None Remove="wwwroot\css\MvcPagedList.Core.v1.css" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="wwwroot\css\MvcPagedList.Core.v1.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
     <Content Include="wwwroot\css\MvcPagedList.Core.css">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
