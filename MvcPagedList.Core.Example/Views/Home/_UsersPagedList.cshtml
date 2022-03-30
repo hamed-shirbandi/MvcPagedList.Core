@@ -8,11 +8,11 @@
         sortBy = Context.Request.Query["sortBy"],
 
     },
-    // if you dont need ajax and want it to reload the page when switching between the pages, just set ajaxAttributes to null
+    // If you dont need ajax and want it to reload the page when switching between the pages, just set ajaxAttributes to null
     ajaxAttributes: new
     {
         data_ajax = "true",
-        data_ajax_loading = "#global-ajax-loading",
+        data_ajax_loading = "#mp-ajax-loading",//Default ajax loading
         data_ajax_update = "#ajax-show-list",
         data_ajax_method = "GET",
         data_ajax_mode = "replace"
@@ -32,4 +32,5 @@
         PageCountFormat = "of",
         TotalItemCountFormat = "total count",
         GetStyleSheetFileFromCdn=true,
+        AjaxLoadingFormat="please wait ...",
     } )

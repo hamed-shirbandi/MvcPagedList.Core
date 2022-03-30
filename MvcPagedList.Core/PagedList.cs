@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace MvcPagedList.Core
@@ -13,15 +12,16 @@ namespace MvcPagedList.Core
     {
         #region Fields
 
+        static TagBuilder wrapper;
+        static TagBuilder prevBtn;
+        static TagBuilder nextBtn;
+        static TagBuilder nav;
+        static TagBuilder ul;
         static bool hasNextPage;
         static bool hasPreviousPage;
         static bool isFirstPage;
         static bool isLastPage;
-        static TagBuilder prevBtn;
-        static TagBuilder nextBtn;
-        static TagBuilder wrapper;
-        static TagBuilder nav;
-        static TagBuilder ul;
+
 
         #endregion
 
@@ -37,7 +37,11 @@ namespace MvcPagedList.Core
             if (pagerOptions.DisplayMode == PagedListDisplayMode.Never || (pagerOptions.DisplayMode == PagedListDisplayMode.IfNeeded && pagerOptions.PageCount <= 1))
                 return null;
 
+            InitialWrapper(pagerOptions);
+
             GenerateStylesheetCdnLink(pagerOptions);
+
+            GenerateAjaxLoading(pagerOptions);
 
             InitialPager(pagerOptions);
 
@@ -57,6 +61,7 @@ namespace MvcPagedList.Core
         }
 
 
+
         #endregion
 
         #region Private Methods
@@ -66,12 +71,47 @@ namespace MvcPagedList.Core
         /// <summary>
         /// 
         /// </summary>
-        private static void GenerateStylesheetCdnLink(PagerOptions pagerOptions)
+        private static void InitialWrapper(PagerOptions pagerOptions)
         {
             wrapper = new TagBuilder("div");
+        }
 
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static void GenerateStylesheetCdnLink(PagerOptions pagerOptions)
+        {
             if (pagerOptions.GetStyleSheetFileFromCdn == true)
                 wrapper.InnerHtml.AppendHtml(@"<link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/gh/hamed-shirbandi/MvcPagedList.Core/MvcPagedList.Core/wwwroot/css/MvcPagedList.Core.v1.css"" />");
+        }
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static void GenerateAjaxLoading(PagerOptions pagerOptions)
+        {
+            if (pagerOptions.DisplayAjaxLoading == false)
+                return;
+
+            var loadingInnerDiv = new TagBuilder("div");
+            loadingInnerDiv.AddCssClass("mp-loading-inner");
+            loadingInnerDiv.MergeAttribute("id", "mp-ajax-loading");
+
+            var loadingDiv = new TagBuilder("div");
+            loadingDiv.AddCssClass("mp-loading");
+
+            var loadingClass = string.IsNullOrWhiteSpace(pagerOptions.AjaxLoadingFormat) ? "mp-loading-figure" : "mp-loading-label";
+            var contentDiv = new TagBuilder("div");
+            contentDiv.AddCssClass(loadingClass);
+            contentDiv.InnerHtml.AppendHtml(pagerOptions.AjaxLoadingFormat);
+
+            loadingDiv.InnerHtml.AppendHtml(contentDiv);
+            loadingInnerDiv.InnerHtml.AppendHtml(loadingDiv);
+            wrapper.InnerHtml.AppendHtml(loadingInnerDiv);
         }
 
 
@@ -274,7 +314,6 @@ namespace MvcPagedList.Core
 
 
         #endregion
-
 
     }
 }

@@ -21,7 +21,7 @@ namespace MvcPagedList.Core
             LiElementClasses = "";
             GetStyleSheetFileFromCdn = true;
             DisplayPageNumbers = true;
-
+            DisplayAjaxLoading = true;
         }
 
         public PagedListDisplayMode DisplayMode { get; set; }
@@ -82,7 +82,15 @@ namespace MvcPagedList.Core
         /// if you dont want to show page numbers just set DisplayPageNumbers to false
         /// </summary>
         public bool DisplayPageNumbers { get; set; }
-
+        /// <summary>
+        /// if you dont want to show ajax loading set DisplayAjaxLoading to false
+        /// </summary>
+        public bool DisplayAjaxLoading { get; set; }
+        /// <summary>
+        /// If you want to show default animated loading let AjaxLoadingFormat empty
+        /// If you want to show a message set it in AjaxLoadingFormat. For example AjaxLoadingFormat="please wait ..."
+        /// </summary>
+        public string AjaxLoadingFormat { get; set; }
 
     }
 }
