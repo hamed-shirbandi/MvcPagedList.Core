@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Description>Easily paging in ASP.NET Core that get data as chunks from database.</Description>
-    <VersionPrefix>2.0.0</VersionPrefix>
+    <VersionPrefix>2.1.0</VersionPrefix>
     <Authors>hamed shirbandi</Authors>
 	<TargetFramework>net6.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -23,9 +23,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="wwwroot\css\MvcPagedList.Core.v1.css">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="wwwroot\css\MvcPagedList.Core.css">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
   </ItemGroup>
