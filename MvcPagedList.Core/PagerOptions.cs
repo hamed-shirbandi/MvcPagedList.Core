@@ -11,11 +11,11 @@ namespace MvcPagedList.Core
             DisplayInfoArea = true;
             DisplayPageCountAndCurrentLocation = true;
             DisplayTotalItemCount = true;
-            LinkToNextPageFormat = "»";
-            LinkToPreviousPageFormat = "«";
+            LinkToNextPageFormat = "next";
+            LinkToPreviousPageFormat = "prev";
             CurrentLocationFormat = "page";
             PageCountFormat = "of";
-            TotalItemCountFormat = "total item count";
+            TotalItemCountFormat = "total items count";
             WrapperClasses = "mp-pagination-nav";
             UlElementClasses = "mp-pagination";
             LiElementClasses = "";
