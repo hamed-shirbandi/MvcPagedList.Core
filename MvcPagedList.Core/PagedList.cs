@@ -296,8 +296,8 @@ namespace MvcPagedList.Core
         /// </summary>
         private static bool CanShowPagination(PagerOptions pagerOptions)
         {
-            return pagerOptions.DisplayMode == PagedListDisplayMode.Never 
-                || (pagerOptions.DisplayMode == PagedListDisplayMode.IfNeeded && pagerOptions.PageCount <= 1);
+            return pagerOptions.DisplayMode == PagedListDisplayMode.Always
+                || (pagerOptions.DisplayMode == PagedListDisplayMode.IfNeeded && pagerOptions.PageCount > 1);
         }
 
 
