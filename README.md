@@ -46,6 +46,8 @@ PagedList.Pager has a routeValues parameter. You can use it like bellow to pass 
 # How to enable ajax pagination?
 PagedList.Pager has an ajaxAttributes parameter. You can use it like bellow to enable ajax:
 > Here you can use all [data-ajax attributes](https://github.com/hamed-shirbandi/MvcPagedList.Core/issues/11#issuecomment-984938612). Just replace "-" with "_"
+
+> Don't forget to add [ajax unobtrusive](https://github.com/hamed-shirbandi/MvcPagedList.Core/blob/master/MvcPagedList.Core.Example/Views/Shared/_ValidationScriptsPartial.cshtml) scripts to your page
 ```code
 
 @PagedList.Pager(actionName: "search", controllerName: "home",
