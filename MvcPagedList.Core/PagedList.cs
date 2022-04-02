@@ -34,7 +34,7 @@ namespace MvcPagedList.Core
         /// </summary>
         public static IHtmlContent Pager(string actionName, PagerOptions pagerOptions, string controllerName = "", string areaName = "", object routeValues = null, object ajaxAttributes = null)
         {
-            if (pagerOptions.DisplayMode == PagedListDisplayMode.Never || (pagerOptions.DisplayMode == PagedListDisplayMode.IfNeeded && pagerOptions.PageCount <= 1))
+            if(!CanShowPagination(pagerOptions))
                 return null;
 
             InitialWrapper(pagerOptions);
@@ -287,6 +287,17 @@ namespace MvcPagedList.Core
             var attributes = ajaxAttributes.GetType().GetProperties().Select(p => new { Key = p.Name.Replace("_", "-"), Value = p.GetValue(ajaxAttributes, null) }).ToList();
             foreach (var attribute in attributes)
                 tagBuilder.Attributes.Add(attribute.Key, attribute.Value.ToString());
+        }
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static bool CanShowPagination(PagerOptions pagerOptions)
+        {
+            return pagerOptions.DisplayMode == PagedListDisplayMode.Never 
+                || (pagerOptions.DisplayMode == PagedListDisplayMode.IfNeeded && pagerOptions.PageCount <= 1);
         }
 
 
