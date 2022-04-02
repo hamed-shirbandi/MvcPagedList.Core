@@ -121,12 +121,18 @@ namespace MvcPagedList.Core
         /// </summary>
         private static void InitialTags(PagerOptions pagerOptions)
         {
-            prevBtn = new TagBuilder("a");
-            prevBtn.AddCssClass("mp-btn");
+            if (CanShowNextBtn(pagerOptions))
+            {
+                nextBtn = new TagBuilder("a");
+                nextBtn.AddCssClass("mp-btn");
+            }
 
-            nextBtn = new TagBuilder("a");
-            nextBtn.AddCssClass("mp-btn");
-
+            if (CanShowPreviousBtn(pagerOptions))
+            {
+                prevBtn = new TagBuilder("a");
+                prevBtn.AddCssClass("mp-btn");
+            }
+          
             nav = new TagBuilder("nav");
             nav.MergeAttribute("aria-label", "Page navigation");
             nav.AddCssClass(pagerOptions.WrapperClasses);
