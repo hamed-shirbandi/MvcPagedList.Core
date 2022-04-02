@@ -307,8 +307,7 @@ namespace MvcPagedList.Core
         /// </summary>
         private static bool CanShowNextBtn(PagerOptions pagerOptions)
         {
-            return pagerOptions.DisplayLinkToNextPage == PagedListDisplayMode.Always
-                || (pagerOptions.DisplayLinkToNextPage == PagedListDisplayMode.IfNeeded && !isLastPage);
+            return pagerOptions.DisplayLinkToNextPage == true;
         }
 
 
@@ -318,8 +317,7 @@ namespace MvcPagedList.Core
         /// </summary>
         private static bool CanShowPreviousBtn(PagerOptions pagerOptions)
         {
-            return pagerOptions.DisplayLinkToPreviousPage == PagedListDisplayMode.Always
-                || (pagerOptions.DisplayLinkToPreviousPage == PagedListDisplayMode.IfNeeded && !isFirstPage);
+            return pagerOptions.DisplayLinkToPreviousPage == true;
         }
 
 

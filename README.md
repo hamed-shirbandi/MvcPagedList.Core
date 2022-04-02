@@ -72,8 +72,8 @@ PagedList.Pager has a pagerOptions parameter. It has many properties that you ca
 | PageCount        | It is used to show total pages count and should be provided by Controller
 | CurrentPage        | It is used to show current page and should be provided by Controller    
 | DisplayMode        | It used to controll display mode for the pagiation and has 3 options: • use 'DisplayMode.Never' when you want to hide the pagination in UI • use 'DisplayMode.IfNeeded' when you want to show the pagination if there is atleast 2 page to show • use 'DisplayMode.Always' when you want to show the pagination even there is 0 or 1 page 
-| DisplayLinkToPreviousPage         | It is used to controll display mode for the previous btn in the pagination and has 3 options: • use ` DisplayMode.Never ` when you want to hide the previous btn • use ` DisplayMode.IfNeeded ` when you want to show the previous btn if current page is not the first page • use ` DisplayMode.Always ` when you want to show the previous btn even current page is the first page    
-| DisplayLinkToNextPage         | It is used to controll display mode for the next btn in the pagination and has 3 options: • use ` DisplayMode.Never ` when you want to hide the next btn • use ` DisplayMode.IfNeeded ` when you want to show the next btn if current page is not the last page • use ` DisplayMode.Always ` when you want to show the next btn even current page is the last page           
+| DisplayLinkToPreviousPage         |   Set it to ` false ` if you dont want to show the previous btn
+| DisplayLinkToNextPage         | Set it to ` false ` if you dont want to show the next btn         
 | DisplayInfoArea         | Set it to ` false ` if you dont want to show the information area and just need to show the pages. information area is a section bellow the pages to show TotalItemCount and PageCount and CurrentPage    
 | DisplayPageCountAndCurrentLocation         | ...    
 | CurrentLocationFormat         | ...    

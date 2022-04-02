@@ -6,8 +6,8 @@ namespace MvcPagedList.Core
         public PagerOptions()
         {
             DisplayMode = PagedListDisplayMode.IfNeeded;
-            DisplayLinkToPreviousPage = PagedListDisplayMode.IfNeeded;
-            DisplayLinkToNextPage = PagedListDisplayMode.IfNeeded;
+            DisplayLinkToPreviousPage = true;
+            DisplayLinkToNextPage = true;
             DisplayInfoArea = true;
             DisplayPageCountAndCurrentLocation = true;
             DisplayTotalItemCount = true;
@@ -25,8 +25,8 @@ namespace MvcPagedList.Core
         }
 
         public PagedListDisplayMode DisplayMode { get; set; }
-        public PagedListDisplayMode DisplayLinkToPreviousPage { get; set; }
-        public PagedListDisplayMode DisplayLinkToNextPage { get; set; }
+        public bool DisplayLinkToPreviousPage { get; set; }
+        public bool DisplayLinkToNextPage { get; set; }
         public int TotalItemCount { get; set; }
         public int PageCount { get; set; }
         public int currentPage { get; set; }
