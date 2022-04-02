@@ -33,7 +33,7 @@ PagedList.Pager has a routeValues parameter. You can use it like bellow to pass 
 @PagedList.Pager(actionName: "search", controllerName: "home",
     routeValues: new
     {
-        //Here we set term from Request.Query and set it to the controller
+        //Here we set term as a value and send it to the controller
         term = Context.Request.Query["term"],
     },
     pagerOptions: 
@@ -44,7 +44,7 @@ PagedList.Pager has a routeValues parameter. You can use it like bellow to pass 
 ```
 
 # How to enable ajax pagination?
-PagedList.Pager has a ajaxAttributes parameter. You can use it like bellow to enable ajax:
+PagedList.Pager has an ajaxAttributes parameter. You can use it like bellow to enable ajax:
 > Here you can use all [data-ajax attributes](https://github.com/hamed-shirbandi/MvcPagedList.Core/issues/11#issuecomment-984938612). Just replace "-" with "_"
 ```code
 
@@ -68,10 +68,10 @@ PagedList.Pager has a ajaxAttributes parameter. You can use it like bellow to en
 PagedList.Pager has a pagerOptions parameter. It has many properties that you can use to customize the pagination. Here is a table to describe the properties:
 | Prop Name     | Description  
 | ------------- | ------------- 
-| TotalItemCount        | ...    
-| PageCount        | ...    
-| currentPage        | ...    
-| DisplayMode        | ...         
+| TotalItemCount        | This is used to show total items count and should be provided by Controller
+| PageCount        | This is used to show total pages count and should be provided by Controller
+| currentPage        | This is used to show current page and should be provided by Controller    
+| DisplayMode        | It used to controll display mode for the pagiation and has 3 options: • use DisplayMode.Never when you want to hide the pagination in UI • use DisplayMode.IfNeeded when you want to show the pagination if there is atleast 2 page to show • use DisplayMode.Always when you want to show the pagination even there is 0 or 1 page 
 | DisplayLinkToPreviousPage         | ...         
 | DisplayLinkToNextPage         | ...         
 | DisplayInfoArea         | ...    
