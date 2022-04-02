@@ -93,4 +93,4 @@ PagedList.Pager has a pagerOptions parameter. It has many properties that you ca
 
 # Screenshots
 
-![alt text](https://github.com/hamed-shirbandi/MvcPagedList/blob/master/MvcPagedList.Example/Content/img/screenShots/Screenshot-1.png)
+![alt text](https://github.com/hamed-shirbandi/MvcPagedList.Core/blob/master/MvcPagedList.Core.Example/images/screenShots/Screenshot-1.png)
