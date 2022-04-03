@@ -7,7 +7,7 @@ It has many features like :
 - Enable ajax with full support for [data-ajax attributes](https://github.com/hamed-shirbandi/MvcPagedList.Core/issues/11#issuecomment-984938612) 
 - Built-in ajax loading
 - Full controll to customize the UI for the pagination
-
+- Without needing to know about ViewModels ( cleaner views and controllers )
 
 # Install via NuGet
 
@@ -68,7 +68,6 @@ PagerOptions parameter in ` PagedList.Pager() ` needs CurrentPage, PageCount and
     ajaxAttributes: new
     {
         data_ajax = "true",
-        data_ajax_loading = "#global-ajax-loading",
         data_ajax_update = "#ajax-show-list",
         data_ajax_method = "GET",
         data_ajax_mode = "replace"
@@ -80,6 +79,29 @@ PagerOptions parameter in ` PagedList.Pager() ` needs CurrentPage, PageCount and
     
 ```
  
+
+# How to set a custom ajax loading?
+Add your loading element to the page and then set its id for data_ajax_loading in ajaxAttributes like bellow:
+> Don't forget to add # at the first of the id. for example, if your loading elemnt id is my-custom-ajax-loading should set ` data_ajax_loading = "#my-custom-ajax-loading" ` 
+
+```code
+
+@PagedList.Pager(actionName: "search", controllerName: "home",
+    ajaxAttributes: new
+    {
+        data_ajax = "true",
+        data_ajax_loading = "#my-custom-ajax-loading",
+        data_ajax_update = "#ajax-show-list",
+        data_ajax_method = "GET",
+        data_ajax_mode = "replace"
+    },
+    pagerOptions: 
+    {
+      ...
+    } )
+    
+```
+
 
 # How to customize the pagination?
 ` PagedList.Pager() ` has a pagerOptions parameter. It has many properties that you can use to customize the pagination. Here is a table to describe the properties:
@@ -104,7 +126,7 @@ PagerOptions parameter in ` PagedList.Pager() ` needs CurrentPage, PageCount and
 | LiElementClasses         | It is used to add a class from your custom css for li tags that wrapps each page number  
 | GetStyleSheetFileFromCdn         | Set it to ` false ` if you dont want to load [css file](https://github.com/hamed-shirbandi/MvcPagedList.Core/blob/master/MvcPagedList.Core/wwwroot/css/MvcPagedList.Core.3.0.0.css) from CDN. Then you have to add it to your pages. Also you can download the [css file](https://github.com/hamed-shirbandi/MvcPagedList.Core/blob/master/MvcPagedList.Core/wwwroot/css/MvcPagedList.Core.3.0.0.css) and modify it to make your own style then add it to your pages    
 | DisplayPageNumbers         | Set it to ` false ` if you dont want to show the pages and just need to show info area    
-| DisplayAjaxLoading         | Set it to ` false ` if you dont want to show ajax loading element    
+| EnableDefaultAjaxLoading         | Set it to ` false ` if you dont want to show ajax loading element    
 | AjaxLoadingFormat         | Let it empty if you want to show default ajax loading or write a text to show when ajax request is sending by the pagination. for example you can write 'Please wait ... ' and it will be shown during an ajax request     
 
 

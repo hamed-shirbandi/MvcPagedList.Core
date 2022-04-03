@@ -5,7 +5,7 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <form class="form-inline" id="search-form" asp-action="search" data-ajax="true" data-ajax-method="GET" data-ajax-update="#ajax-show-list" data-ajax-loading="#global-ajax-loading">
+        <form class="form-inline" id="search-form" asp-action="search" data-ajax="true" data-ajax-method="GET" data-ajax-update="#ajax-show-list" data-ajax-loading="#mp-ajax-loading">
             <div class="form-group">
                 @Html.TextBox("term", null, new { @class = "form-control", id = "", placeholder = "search ..." })
             </div>
@@ -25,11 +25,6 @@
     </div>
 </div>
 
-<div class="loading-inner" id="global-ajax-loading">
-    <div class="loading">
-        <div class="loading-figure"></div>
-    </div>
-</div>
 
 @section Scripts{
     <!--To handle ajax pagination-->
