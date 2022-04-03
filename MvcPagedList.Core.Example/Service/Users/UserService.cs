@@ -50,8 +50,8 @@ namespace MvcPagedList.Core.Example.Service.Users
 
             if (!string.IsNullOrEmpty(term))
             {
-                queryable = queryable.Where(c => c.Family.Contains(term) || c.Name.Contains(term));
-
+                term = term.ToLower();
+                queryable = queryable.Where(c => c.Family.ToLower().Contains(term) || c.Name.ToLower().Contains(term));
             }
 
 
