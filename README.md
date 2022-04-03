@@ -136,7 +136,7 @@ We need your support by giving a star or contributing or sharing this project wi
 
 
 # Author & License
-This project is developed by [Hamed Shirbandi](https://github.com/hamed-shirbandi) under [MIT](https://github.com/hamed-shirbandi/TaskoMask/blob/master/LICENSE) licensed.
+This project is developed by [Hamed Shirbandi](https://github.com/hamed-shirbandi) under [MIT](https://github.com/hamed-shirbandi/MvcPagedList.Core/blob/master/LICENSE) licensed.
 Find Hamed around the web and feel free to ask your question.
 
 <a href="https://www.linkedin.com/in/hamed-shirbandi"><img alt="LinkedIn" src="https://github.com/hamed-shirbandi/hamed-shirbandi/blob/main/docs/LinkedIn-v2.png" width="35"></a>
