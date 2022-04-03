@@ -21,7 +21,7 @@ namespace MvcPagedList.Core
             LiElementClasses = "";
             GetStyleSheetFileFromCdn = true;
             DisplayPageNumbers = true;
-            DisplayAjaxLoading = true;
+            EnableDefaultAjaxLoading = true;
         }
 
         public PagedListDisplayMode DisplayMode { get; set; }
@@ -79,13 +79,15 @@ namespace MvcPagedList.Core
         /// </summary>
         public bool GetStyleSheetFileFromCdn { get; set; }
         /// <summary>
-        /// if you dont want to show page numbers just set DisplayPageNumbers to false
+        /// If you dont want to show page numbers just set DisplayPageNumbers to false
         /// </summary>
         public bool DisplayPageNumbers { get; set; }
         /// <summary>
-        /// if you dont want to show ajax loading set DisplayAjaxLoading to false
+        /// If you dont want to show the default ajax loading set EnableDefaultAjaxLoading to false
+        /// Then you need to set your loading elemnt id for data_ajax_loading in ajaxAttributes parameters when you call PagedList.Pager() in the view
+        /// If ajaxAttributes in PagedList.Pager() contains a value for data_ajax_loading and it is not empty or not the same as defaultAjaxLoadingElementId then it will ignore the default ajax loading even EnableDefaultAjaxLoading is true
         /// </summary>
-        public bool DisplayAjaxLoading { get; set; }
+        public bool EnableDefaultAjaxLoading { get; set; }
         /// <summary>
         /// If you want to show default animated loading let AjaxLoadingFormat empty
         /// If you want to show a message set it in AjaxLoadingFormat. For example AjaxLoadingFormat="please wait ..."
