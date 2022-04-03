@@ -76,10 +76,10 @@ PagedList.Pager has a pagerOptions parameter. It has many properties that you ca
 | DisplayLinkToNextPage         | Set it to ` false ` if you dont want to show the next btn         
 | DisplayInfoArea         | Set it to ` false ` if you dont want to show the information area and just need to show the pages. information area is a section bellow the pages to show TotalItemCount and PageCount and CurrentPage    
 | DisplayPageCountAndCurrentLocation         | Set it to ` false ` if you dont want to show PageCount and CurrentPage in info area    
-| CurrentLocationFormat         | It is a lable for currentPage. for example 'page' int 'page 1 of 12'   
-| PageCountFormat         | It is a lable for PageCount. for example 'of' int 'page 1 of 12'    
+| CurrentLocationFormat         | It is a lable for currentPage. for example 'page' in 'page 1 of 12'   
+| PageCountFormat         | It is a lable for PageCount. for example 'of' in 'page 1 of 12'    
 | DisplayTotalItemCount         |  Set it to ` false ` if you dont want to show TotalItemCount in info area      
-| TotalItemCountFormat         |  It is a lable for TotalItemCount. for example 'total items count' int 'total items count 400'     
+| TotalItemCountFormat         |  It is a lable for TotalItemCount. for example 'total items count' in 'total items count 400'     
 | LinkToNextPageFormat         | It is a lable for next btn. for example 'next' or '>>'   
 | LinkToPreviousPageFormat         | It is a lable for prev btn. for example 'prev' or '<<'       
 | WrapperClasses         |  It is used to add a class from your custom css for main wrapper of the pagination    
