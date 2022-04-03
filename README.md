@@ -33,7 +33,7 @@ It is very simple to use. You just need to provide PageCount, currentPage and To
     
 ```
 
-that's it! Just by adding above lines of code to the view, You will have the pagination.
+That's it! Just by adding above lines of code to the view, You will have the pagination.
 
 # How to provide needed data for the pager ?
 PagerOptions parameter in ` PagedList.Pager() ` needs CurrentPage, PageCount and TotalItemCount to make the pagination. A simple way to pass them from controller to the pager in the view is using ViewBags. For providing these items you need to run some queries on database, Here is an example to provide these data in a [controller](https://github.com/hamed-shirbandi/MvcPagedList.Core/blob/113a52b64fd6440f3cc0ec28f930d32d2a854e71/MvcPagedList.Core.Example/Controllers/HomeController.cs#L41) by using an [application service](https://github.com/hamed-shirbandi/MvcPagedList.Core/blob/113a52b64fd6440f3cc0ec28f930d32d2a854e71/MvcPagedList.Core.Example/Service/Users/UserService.cs#L85). Review the codes to learn how to do it.
