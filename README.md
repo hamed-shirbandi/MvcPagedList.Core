@@ -81,7 +81,7 @@ PagerOptions parameter in ` PagedList.Pager() ` needs CurrentPage, PageCount and
  
 
 # How to set a custom ajax loading?
-Add your loading element to the page and then set its id for data_ajax_loading in ajaxAttributes like bellow:
+Default ajax loading is enabled by default but if you want to have your own loading just add your loading html and css to the page and then set its id for data_ajax_loading in ajaxAttributes like bellow:
 > Don't forget to add # at the first of the id. for example, if your loading elemnt id is my-custom-ajax-loading should set ` data_ajax_loading = "#my-custom-ajax-loading" ` 
 
 ```code
