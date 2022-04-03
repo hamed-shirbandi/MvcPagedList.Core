@@ -85,7 +85,7 @@ PagedList.Pager has a pagerOptions parameter. It has many properties that you ca
 | WrapperClasses         |  It is used to add a class from your custom css for main wrapper of the pagination    
 | UlElementClasses         | It is used to add a class from your custom css for ul tage that wrapps all page numbers    
 | LiElementClasses         | It is used to add a class from your custom css for li tags that wrapps each page number  
-| GetStyleSheetFileFromCdn         | Set it to ` false ` if you dont want to load css file from CDN. Then you have to add it to your pages    
+| GetStyleSheetFileFromCdn         | Set it to ` false ` if you dont want to load [css file](https://github.com/hamed-shirbandi/MvcPagedList.Core/blob/master/MvcPagedList.Core/wwwroot/css/MvcPagedList.Core.v1.css) from CDN. Then you have to add it to your pages    
 | DisplayPageNumbers         | Set it to ` false ` if you dont want to show the pages and just need to show info area    
 | DisplayAjaxLoading         | Set it to ` false ` if you dont want to show ajax loading element    
 | AjaxLoadingFormat         | Let it empty if you want to show default ajax loading or write a text to show when ajax request is sending by the pagination. for example you can write 'Please wait ... ' and it will be shown during an ajax request     
