@@ -1,12 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\MvcPagedList.Core\MvcPagedList.Core.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\MvcPagedList.Core\MvcPagedList.Core.csproj" />
+	</ItemGroup>
 
 </Project>
