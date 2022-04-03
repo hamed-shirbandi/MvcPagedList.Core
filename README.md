@@ -1,7 +1,6 @@
 # What is MvcPagedList.Core ?
 
 It is a light tool to create easily paging in ASP.NET Core that get data as chunks from database.
-It has many features like :
 - Very simple to use
 - Quick access to pages by scrolling
 - Enable ajax with full support for [data-ajax attributes](https://github.com/hamed-shirbandi/MvcPagedList.Core/issues/11#issuecomment-984938612) 
@@ -20,7 +19,7 @@ You can also view the [package page](https://www.nuget.org/packages/MvcPagedList
 
 # How to use ?
 It is very simple to use. You just need to provide PageCount, currentPage and TotalItemCount in your controller and send them by [ViewBags](https://github.com/hamed-shirbandi/MvcPagedList.Core/blob/e868ad365424c474a8a7324cf4987c425bc912f6/MvcPagedList.Core.Example/Controllers/HomeController.cs#L44) to the view. Then in the view you just need to call [` PagedList.Pager() `](https://github.com/hamed-shirbandi/MvcPagedList.Core/blob/e868ad365424c474a8a7324cf4987c425bc912f6/MvcPagedList.Core.Example/Views/Home/_UsersPagedList.cshtml#L3) to show the pagination.
-> ` PagedList.Pager() ` has some parameters. You can use actionName, controllerName and areaName to be used for getting response when a request is made by the pagination. Another parameters are routeValues, ajaxAttributes and pagerOptions that are described in the following.
+> ` PagedList.Pager() ` has some parameters. You can use actionName, controllerName and areaName to send requests created by the pagination. Another parameters are routeValues, ajaxAttributes and pagerOptions that are described in the following.
 
 ```code
 
@@ -34,6 +33,7 @@ It is very simple to use. You just need to provide PageCount, currentPage and To
     
 ```
 
+that's it! Just by adding above lines of code to the view, You will have the pagination.
 
 # How to provide needed data for the pager ?
 PagerOptions parameter in ` PagedList.Pager() ` needs CurrentPage, PageCount and TotalItemCount to make the pagination. A simple way to pass them from controller to the pager in the view is using ViewBags. For providing these items you need to run some queries on database, Here is an example to provide these data in a [controller](https://github.com/hamed-shirbandi/MvcPagedList.Core/blob/113a52b64fd6440f3cc0ec28f930d32d2a854e71/MvcPagedList.Core.Example/Controllers/HomeController.cs#L41) by using an [application service](https://github.com/hamed-shirbandi/MvcPagedList.Core/blob/113a52b64fd6440f3cc0ec28f930d32d2a854e71/MvcPagedList.Core.Example/Service/Users/UserService.cs#L85). Review the codes to learn how to do it.
