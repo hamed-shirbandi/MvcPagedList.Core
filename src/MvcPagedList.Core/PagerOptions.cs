@@ -31,11 +31,11 @@ namespace MvcPagedList.Core
         public int PageCount { get; set; }
         public int currentPage { get; set; }
         /// <summary>
-        /// If you dont want to show any information (PageCount,currentPage,TotalItemCount,...) bellow the pagination, set DisplayInfoArea to false
+        /// If you dont want to show any information (PageCount,currentPage,TotalItemCount,...) below the pagination, set DisplayInfoArea to false
         /// </summary>
         public bool DisplayInfoArea { get; set; }
         /// <summary>
-        /// If you dont want to show PageCount and CurrentLocationFormat bellow the pagination, set DisplayPageCountAndCurrentLocation to false
+        /// If you dont want to show PageCount and CurrentLocationFormat below the pagination, set DisplayPageCountAndCurrentLocation to false
         /// </summary>
         public bool DisplayPageCountAndCurrentLocation { get; set; }
         /// <summary>
@@ -47,7 +47,7 @@ namespace MvcPagedList.Core
         /// </summary>
         public string PageCountFormat { get; set; }
         /// <summary>
-        /// If you dont want to show TotalItemCount bellow the pagination, set DisplayTotalItemCount to false
+        /// If you dont want to show TotalItemCount below the pagination, set DisplayTotalItemCount to false
         /// </summary>
         public bool DisplayTotalItemCount { get; set; }
         /// <summary>
