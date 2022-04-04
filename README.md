@@ -5,8 +5,13 @@ It is a light tool to create easily paging in ASP.NET Core that gets data as chu
 - Quick access to pages by scrolling
 - Enable ajax with full support for [data-ajax attributes](https://github.com/hamed-shirbandi/MvcPagedList.Core/issues/11#issuecomment-984938612) 
 - Built-in ajax loading
-- Full controll to customize the UI for the pagination
-- Without needing to know about ViewModels ( cleaner views and controllers )
+- Full controll to customize the UI
+- No effect on Controllers, Views and ViewModels
+- No need to link any js or css file
+- Improve performance by getting data for each pages as a new chunk from database
+- Free and open-source
+- Easy install via NuGet
+- Support all MVC projects with netcoreapp3.1 TargetFramework and after
 
 # Install via NuGet
 
@@ -14,7 +19,7 @@ To install MvcPagedList.Core, run the following command in the Package Manager C
 ```code
 pm> Install-Package MvcPagedList.Core
 ```
-You can also view the [package page](https://www.nuget.org/packages/MvcPagedList.Core/) on NuGet.
+You can also view the [package page](https://www.NuGet.org/packages/MvcPagedList.Core/) on NuGet.
 
 
 # How to use ?
@@ -143,7 +148,7 @@ Find Hamed around the web and feel free to ask your question.
 <a href="https://www.instagram.com/hamedshirbandi"><img alt="Instagram" src="https://github.com/hamed-shirbandi/hamed-shirbandi/blob/main/docs/Instagram-v2.png" width="35"></a>
 <a href="https://github.com/hamed-shirbandi"><img alt="GitHub" src="https://github.com/hamed-shirbandi/hamed-shirbandi/blob/main/docs/GitHub-v2.png" width="35"></a>
 <a href="https://medium.com/@hamed.shirbandi"><img alt="Medium" src="https://github.com/hamed-shirbandi/hamed-shirbandi/blob/main/docs/Medium-v2.png" width="35"></a>
-<a href="https://www.nuget.org/profiles/hamed-shirbandi"><img alt="Nuget" src="https://github.com/hamed-shirbandi/hamed-shirbandi/blob/main/docs/Nuget-v2.png" width="35"></a>
+<a href="https://www.NuGet.org/profiles/hamed-shirbandi"><img alt="NuGet" src="https://github.com/hamed-shirbandi/hamed-shirbandi/blob/main/docs/NuGet-v2.png" width="35"></a>
 <a href="mailto:hamed.shirbandi@gmail.com"><img alt="Email" src="https://github.com/hamed-shirbandi/hamed-shirbandi/blob/main/docs/Email-v2.png" width="35"></a>
 <a href="https://t.me/hamed_shirbandi"><img alt="Telegram" src="https://github.com/hamed-shirbandi/hamed-shirbandi/blob/main/docs/Telegram-v2.png" width="35"></a>
 <a href="https://twitter.com/hamed_shirbandi"><img alt="Twitter" src="https://github.com/hamed-shirbandi/hamed-shirbandi/blob/main/docs/Twitter-v2.png" width="35"></a>
