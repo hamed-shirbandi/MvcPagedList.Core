@@ -151,4 +151,4 @@ Find Hamed around the web and feel free to ask your question.
 
 # Screenshots
 
-![alt text](https://github.com/hamed-shirbandi/MvcPagedList.Core/blob/master/MvcPagedList.Core.Example/wwwroot/images/Screenshot-1.png)
+![alt text](https://github.com/hamed-shirbandi/MvcPagedList.Core/blob/master/src/MvcPagedList.Core.Example/wwwroot/images/Screenshot-1.png)
