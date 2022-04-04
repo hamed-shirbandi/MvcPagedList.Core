@@ -42,11 +42,11 @@ It is very simple to use. You just need to provide [PageCount](https://github.co
 That's it! Just by adding the above lines of code, You will have the pagination.
 
 # How to provide needed data for the pager ?
-PagerOptions parameter in ` PagedList.Pager() ` needs CurrentPage, PageCount and TotalItemCount to make the pagination. A simple way to pass them from controller to the pager in the view is using ViewBags. For providing these items you need to run some queries on database, Here is an example to provide these data in a [controller](https://github.com/hamed-shirbandi/MvcPagedList.Core/blob/113a52b64fd6440f3cc0ec28f930d32d2a854e71/MvcPagedList.Core.Example/Controllers/HomeController.cs#L41) by using an [application service](https://github.com/hamed-shirbandi/MvcPagedList.Core/blob/113a52b64fd6440f3cc0ec28f930d32d2a854e71/MvcPagedList.Core.Example/Service/Users/UserService.cs#L85). Review the codes to learn how to do it.
+` PagerOptions ` parameter in ` PagedList.Pager() ` needs ` CurrentPage `, ` PageCount ` and ` TotalItemCount`  to make the pagination. A simple way to pass them from controller to the pager in the view is using ViewBags. For providing these items you need to run some queries on database, Here is an example to provide these data in a [controller](https://github.com/hamed-shirbandi/MvcPagedList.Core/blob/113a52b64fd6440f3cc0ec28f930d32d2a854e71/MvcPagedList.Core.Example/Controllers/HomeController.cs#L41) by using an [application service](https://github.com/hamed-shirbandi/MvcPagedList.Core/blob/113a52b64fd6440f3cc0ec28f930d32d2a854e71/MvcPagedList.Core.Example/Service/Users/UserService.cs#L85). Review the codes to learn how to do it.
 
 
 # How to pass route values to the controller?
-` PagedList.Pager() ` has a routeValues parameter. You can use it like below to pass your data to the controller:
+` PagedList.Pager() ` has a routeValues parameter you can use like below to pass your data to the controller:
 ```code
 
 @PagedList.Pager(actionName: "search", controllerName: "home",
@@ -64,7 +64,7 @@ PagerOptions parameter in ` PagedList.Pager() ` needs CurrentPage, PageCount and
 
 
 # How to enable ajax pagination?
-` PagedList.Pager() ` has an ajaxAttributes parameter. You can use it like below to enable ajax:
+` PagedList.Pager() ` has an ` ajaxAttributes ` parameter you can use like below to enable ajax:
 > Here you can use all [data-ajax attributes](https://github.com/hamed-shirbandi/MvcPagedList.Core/issues/11#issuecomment-984938612). Just replace "-" with "_"
 
 > Don't forget to add [ajax unobtrusive](https://github.com/hamed-shirbandi/MvcPagedList.Core/blob/02cc537bc644a19a4b9f51a759c11b99f8fbff13/src/MvcPagedList.Core.Example/Views/Shared/_ValidationScriptsPartial.cshtml#L3) scripts to your page
@@ -110,7 +110,7 @@ Default ajax loading is enabled by default but if you want to have your own load
 
 
 # How to customize the pagination UI?
-` PagedList.Pager() ` has a pagerOptions parameter. It has many properties that you can use to customize the pagination. Here is a table to describe the properties:
+` PagedList.Pager() ` has a ` pagerOptions ` parameter. It has many properties that you can use to customize the pagination. Here is a table to describe the properties:
 | Prop Name     | Description  
 | ------------- | ------------- 
 | TotalItemCount        | It is used to show total items count and should be provided by Controller
