@@ -5,12 +5,12 @@ It is a light tool to create easily paging in ASP.NET Core that gets data as chu
 - Quick access to pages by scrolling
 - Enable ajax with full support for [data-ajax attributes](https://github.com/hamed-shirbandi/MvcPagedList.Core/issues/11#issuecomment-984938612) 
 - Built-in ajax loading
-- Full controll to customize the UI
+- Full control to customize the UI
 - No effect on Controllers, Views and ViewModels
 - No need to link any js or css file
 - Improve performance by getting data for each pages as a new chunk from database
 - Free and open-source
-- Easy install via NuGet
+- Easy installation via NuGet
 - Support all MVC projects with netcoreapp3.1 TargetFramework and after
 
 # Install via NuGet
