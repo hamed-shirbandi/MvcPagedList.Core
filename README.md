@@ -66,7 +66,7 @@ PagerOptions parameter in ` PagedList.Pager() ` needs CurrentPage, PageCount and
 ` PagedList.Pager() ` has an ajaxAttributes parameter. You can use it like bellow to enable ajax:
 > Here you can use all [data-ajax attributes](https://github.com/hamed-shirbandi/MvcPagedList.Core/issues/11#issuecomment-984938612). Just replace "-" with "_"
 
-> Don't forget to add [ajax unobtrusive](https://github.com/hamed-shirbandi/MvcPagedList.Core/blob/master/MvcPagedList.Core.Example/Views/Shared/_ValidationScriptsPartial.cshtml) scripts to your page
+> Don't forget to add [ajax unobtrusive](https://github.com/hamed-shirbandi/MvcPagedList.Core/blob/02cc537bc644a19a4b9f51a759c11b99f8fbff13/src/MvcPagedList.Core.Example/Views/Shared/_ValidationScriptsPartial.cshtml#L3) scripts to your page
 ```code
 
 @PagedList.Pager(actionName: "search", controllerName: "home",
