@@ -1,6 +1,6 @@
 # What is MvcPagedList.Core ?
 
-It is a light tool to create easily paging in ASP.NET Core that gets data as chunks from database.
+It is a light tool to create easily paging in ASP.NET Core MVC that gets data as chunks from database.
 - Very simple to use
 - Quick access to pages by scrolling
 - Enable ajax with full support for [data-ajax attributes](https://github.com/hamed-shirbandi/MvcPagedList.Core/issues/11#issuecomment-984938612) 

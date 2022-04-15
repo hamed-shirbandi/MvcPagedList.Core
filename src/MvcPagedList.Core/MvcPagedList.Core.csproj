@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<Description>Easily paging in ASP.NET Core that gets data as chunks from database.</Description>
+		<Description>Easily paging in ASP.NET Core MVC that gets data as chunks from database</Description>
 		<VersionPrefix>3.1.0</VersionPrefix>
 		<Authors>hamed shirbandi</Authors>
 		<TargetFramework>netcoreapp3.1</TargetFramework>
