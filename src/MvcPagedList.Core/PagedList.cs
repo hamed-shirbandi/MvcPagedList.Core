@@ -7,7 +7,7 @@ using System.Linq;
 namespace MvcPagedList.Core
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public static class PagedList
     {
@@ -32,9 +32,16 @@ namespace MvcPagedList.Core
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
-        public static IHtmlContent Pager(string actionName, PagerOptions pagerOptions, string controllerName = "", string areaName = "", object routeValues = null, object ajaxAttributes = null)
+        public static IHtmlContent Pager(
+            string actionName,
+            PagerOptions pagerOptions,
+            string controllerName = "",
+            string areaName = "",
+            object routeValues = null,
+            object ajaxAttributes = null
+        )
         {
             if (!CanShowPagination(pagerOptions))
                 return null;
@@ -61,10 +68,10 @@ namespace MvcPagedList.Core
 
             GenerateInfoArea(pagerOptions);
 
+            wrapper.InnerHtml.AppendHtml(nav);
+
             return wrapper;
         }
-
-
 
         #endregion
 
@@ -73,28 +80,26 @@ namespace MvcPagedList.Core
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         private static void InitialWrapper(PagerOptions pagerOptions)
         {
             wrapper = new TagBuilder("div");
         }
 
-
-
         /// <summary>
-        /// 
+        ///
         /// </summary>
         private static void GenerateStylesheetCdnLink(PagerOptions pagerOptions)
         {
             if (pagerOptions.GetStyleSheetFileFromCdn == true)
-                wrapper.InnerHtml.AppendHtml(@"<link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/gh/hamed-shirbandi/MvcPagedList.Core/MvcPagedList.Core/wwwroot/css/MvcPagedList.Core.3.0.0.css"" />");
+                wrapper.InnerHtml.AppendHtml(
+                    @"<link rel=""stylesheet"" href=""https://hamed-shirbandi.github.io/content/shared/MvcPagedList.Core.3.0.0.css"" />"
+                );
         }
 
-
-
         /// <summary>
-        /// 
+        ///
         /// </summary>
         private static void EnableDefaultAjaxLoading(PagerOptions pagerOptions)
         {
@@ -106,10 +111,8 @@ namespace MvcPagedList.Core
             GenerateAjaxLoadingElements(pagerOptions);
         }
 
-
-
         /// <summary>
-        /// 
+        ///
         /// </summary>
         private static void GenerateAjaxLoadingElements(PagerOptions pagerOptions)
         {
@@ -120,7 +123,9 @@ namespace MvcPagedList.Core
             var loadingDiv = new TagBuilder("div");
             loadingDiv.AddCssClass("mp-loading");
 
-            var loadingClass = string.IsNullOrWhiteSpace(pagerOptions.AjaxLoadingFormat) ? "mp-loading-figure" : "mp-loading-label";
+            var loadingClass = string.IsNullOrWhiteSpace(pagerOptions.AjaxLoadingFormat)
+                ? "mp-loading-figure"
+                : "mp-loading-label";
             var contentDiv = new TagBuilder("div");
             contentDiv.AddCssClass(loadingClass);
             contentDiv.InnerHtml.AppendHtml(pagerOptions.AjaxLoadingFormat);
@@ -130,10 +135,8 @@ namespace MvcPagedList.Core
             wrapper.InnerHtml.AppendHtml(loadingInnerDiv);
         }
 
-
-
         /// <summary>
-        /// 
+        ///
         /// </summary>
         private static void InitialTags(PagerOptions pagerOptions)
         {
@@ -157,10 +160,8 @@ namespace MvcPagedList.Core
             ul.AddCssClass(pagerOptions.UlElementClasses);
         }
 
-
-
         /// <summary>
-        /// 
+        ///
         /// </summary>
         private static void InitialPager(PagerOptions pagerOptions)
         {
@@ -170,28 +171,39 @@ namespace MvcPagedList.Core
             isLastPage = pagerOptions.currentPage == pagerOptions.PageCount;
         }
 
-
-
         /// <summary>
-        /// 
+        ///
         /// </summary>
-        private static void GenerateNextBtn(string actionName, string controllerName, string areaName, object routeValues, PagerOptions pagerOptions)
+        private static void GenerateNextBtn(
+            string actionName,
+            string controllerName,
+            string areaName,
+            object routeValues,
+            PagerOptions pagerOptions
+        )
         {
             if (!CanShowNextBtn(pagerOptions))
                 return;
 
-            var page = pagerOptions.currentPage >= pagerOptions.PageCount ? pagerOptions.PageCount : pagerOptions.currentPage + 1;
+            var page =
+                pagerOptions.currentPage >= pagerOptions.PageCount
+                    ? pagerOptions.PageCount
+                    : pagerOptions.currentPage + 1;
             nextBtn.MergeAjaxAttribute();
             nextBtn.MergeUrlAttribute(actionName, controllerName, areaName, routeValues, page);
             nextBtn.InnerHtml.AppendHtml(pagerOptions.LinkToNextPageFormat);
         }
 
-
-
         /// <summary>
-        /// 
+        ///
         /// </summary>
-        private static void GeneratePageNumbers(string actionName, string controllerName, string areaName, object routeValues, PagerOptions pagerOptions)
+        private static void GeneratePageNumbers(
+            string actionName,
+            string controllerName,
+            string areaName,
+            object routeValues,
+            PagerOptions pagerOptions
+        )
         {
             if (!pagerOptions.DisplayPageNumbers)
                 return;
@@ -215,12 +227,16 @@ namespace MvcPagedList.Core
             }
         }
 
-
-
         /// <summary>
-        /// 
+        ///
         /// </summary>
-        private static void GeneratePrevBtn(string actionName, string controllerName, string areaName, object routeValues, PagerOptions pagerOptions)
+        private static void GeneratePrevBtn(
+            string actionName,
+            string controllerName,
+            string areaName,
+            object routeValues,
+            PagerOptions pagerOptions
+        )
         {
             if (!CanShowPreviousBtn(pagerOptions))
                 return;
@@ -231,10 +247,8 @@ namespace MvcPagedList.Core
             prevBtn.InnerHtml.AppendHtml(pagerOptions.LinkToPreviousPageFormat);
         }
 
-
-
         /// <summary>
-        /// 
+        ///
         /// </summary>
         private static void GenerateInfoArea(PagerOptions pagerOptions)
         {
@@ -257,7 +271,15 @@ namespace MvcPagedList.Core
             {
                 var pageInfoDiv = new TagBuilder("div");
                 pageInfoDiv.AddCssClass("is-right");
-                pageInfoDiv.InnerHtml.AppendHtml(pagerOptions.CurrentLocationFormat + " " + pagerOptions.currentPage + " " + pagerOptions.PageCountFormat + " " + pagerOptions.PageCount);
+                pageInfoDiv.InnerHtml.AppendHtml(
+                    pagerOptions.CurrentLocationFormat
+                        + " "
+                        + pagerOptions.currentPage
+                        + " "
+                        + pagerOptions.PageCountFormat
+                        + " "
+                        + pagerOptions.PageCount
+                );
                 infoDiv.InnerHtml.AppendHtml(pageInfoDiv);
             }
 
@@ -265,27 +287,38 @@ namespace MvcPagedList.Core
             {
                 var totalInfoDiv = new TagBuilder("div");
                 totalInfoDiv.AddCssClass("is-left");
-                totalInfoDiv.InnerHtml.AppendHtml(pagerOptions.TotalItemCountFormat + " " + pagerOptions.TotalItemCount);
+                totalInfoDiv.InnerHtml.AppendHtml(
+                    pagerOptions.TotalItemCountFormat + " " + pagerOptions.TotalItemCount
+                );
                 infoDiv.InnerHtml.AppendHtml(totalInfoDiv);
             }
-
 
             footerDiv.InnerHtml.AppendHtml(infoDiv);
 
             nav.InnerHtml.AppendHtml(footerDiv);
-            wrapper.InnerHtml.AppendHtml(nav);
         }
 
-
-
         /// <summary>
-        /// 
+        ///
         /// </summary>
-        private static void MergeUrlAttribute(this TagBuilder tagBuilder, string actionName, string controllerName, string areaName, object routeValues, int page)
+        private static void MergeUrlAttribute(
+            this TagBuilder tagBuilder,
+            string actionName,
+            string controllerName,
+            string areaName,
+            object routeValues,
+            int page
+        )
         {
             string values = string.Empty;
             if (routeValues != null)
-                values = String.Join("&", routeValues.GetType().GetProperties().Select(p => p.Name + "=" + p.GetValue(routeValues, null)));
+                values = String.Join(
+                    "&",
+                    routeValues
+                        .GetType()
+                        .GetProperties()
+                        .Select(p => p.Name + "=" + p.GetValue(routeValues, null))
+                );
 
             if (!string.IsNullOrEmpty(areaName))
                 areaName = "/" + areaName;
@@ -293,13 +326,14 @@ namespace MvcPagedList.Core
             if (!string.IsNullOrEmpty(controllerName))
                 controllerName = "/" + controllerName;
 
-            tagBuilder.MergeAttribute("href", areaName + controllerName + "/" + actionName + "?page=" + page + "&" + values);
+            tagBuilder.MergeAttribute(
+                "href",
+                areaName + controllerName + "/" + actionName + "?page=" + page + "&" + values
+            );
         }
 
-
-
         /// <summary>
-        /// 
+        ///
         /// </summary>
         private static void MergeAjaxAttribute(this TagBuilder tagBuilder)
         {
@@ -307,51 +341,43 @@ namespace MvcPagedList.Core
                 tagBuilder.Attributes.Add(attribute.Key, attribute.Value.ToString());
         }
 
-
-
         /// <summary>
-        /// 
+        ///
         /// </summary>
         private static bool CanShowPagination(PagerOptions pagerOptions)
         {
             return pagerOptions.DisplayMode == PagedListDisplayMode.Always
-                || (pagerOptions.DisplayMode == PagedListDisplayMode.IfNeeded && pagerOptions.PageCount > 1);
+                || (
+                    pagerOptions.DisplayMode == PagedListDisplayMode.IfNeeded
+                    && pagerOptions.PageCount > 1
+                );
         }
 
-
-
         /// <summary>
-        /// 
+        ///
         /// </summary>
         private static bool CanShowNextBtn(PagerOptions pagerOptions)
         {
             return pagerOptions.DisplayLinkToNextPage == true;
         }
 
-
-
         /// <summary>
-        /// 
+        ///
         /// </summary>
         private static bool CanShowPreviousBtn(PagerOptions pagerOptions)
         {
             return pagerOptions.DisplayLinkToPreviousPage == true;
         }
 
-
-
         /// <summary>
-        /// 
+        ///
         /// </summary>
         private static bool CanShowAjaxLoading(PagerOptions pagerOptions)
         {
             return ajaxAttributesKeyValueList.Count > 0
                 && pagerOptions.EnableDefaultAjaxLoading == true
                 && AjaxAttributesAlreadyHasCustomAjaxLoading() == false;
-
         }
-
-
 
         /// <summary>
         /// Check if there is a data_ajax_loading already defined in ajaxAttributes and that is not empty and not the same as defaultAjaxLoadingElementId
@@ -359,32 +385,46 @@ namespace MvcPagedList.Core
         /// </summary>
         private static bool AjaxAttributesAlreadyHasCustomAjaxLoading()
         {
-            return  ajaxAttributesKeyValueList.Any(a => a.Key == data_ajax_loading && !string.IsNullOrEmpty(a.Value) && a.Value != $"#{defaultAjaxLoadingElementId}");
+            return ajaxAttributesKeyValueList.Any(
+                a =>
+                    a.Key == data_ajax_loading
+                    && !string.IsNullOrEmpty(a.Value)
+                    && a.Value != $"#{defaultAjaxLoadingElementId}"
+            );
         }
 
-
-
         /// <summary>
-        /// 
+        ///
         /// </summary>
         private static void SetAjaxAttributesKeyValueList(object ajaxAttributes)
         {
             if (ajaxAttributes is null)
                 ajaxAttributesKeyValueList = new Dictionary<string, string>();
             else
-                ajaxAttributesKeyValueList = ajaxAttributes.GetType().GetProperties().Select(p => new { Key = p.Name.Replace("_", "-").ToString(), Value = p.GetValue(ajaxAttributes, null)?.ToString() }).ToDictionary(d => d.Key, d => d.Value);
+                ajaxAttributesKeyValueList = ajaxAttributes
+                    .GetType()
+                    .GetProperties()
+                    .Select(
+                        p =>
+                            new
+                            {
+                                Key = p.Name.Replace("_", "-").ToString(),
+                                Value = p.GetValue(ajaxAttributes, null)?.ToString()
+                            }
+                    )
+                    .ToDictionary(d => d.Key, d => d.Value);
         }
 
-
-
         /// <summary>
-        /// 
+        ///
         /// </summary>
         private static void AddDefaultAjaxLoadingDataToAjaxAttributes()
         {
             if (ajaxAttributesKeyValueList.ContainsKey(data_ajax_loading))
             {
-                var customAjaxLoading = ajaxAttributesKeyValueList.FirstOrDefault(a => a.Key == data_ajax_loading);
+                var customAjaxLoading = ajaxAttributesKeyValueList.FirstOrDefault(
+                    a => a.Key == data_ajax_loading
+                );
                 if (customAjaxLoading.Value == $"#{defaultAjaxLoadingElementId}")
                     return;
                 else
@@ -394,8 +434,6 @@ namespace MvcPagedList.Core
             ajaxAttributesKeyValueList.Add(data_ajax_loading, $"#{defaultAjaxLoadingElementId}");
         }
 
-
         #endregion
-
     }
 }
